@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2E2620">
+    <meta name="description" content="Contact MAKHANAM for premium raw Makhana wholesale supply, domestic orders, export RFQs, FOB/CIF quotations and bulk supply from Bihar, India.">
+
+    <title>Contact MAKHANAM | Premium Raw Makhana Supply</title>
+
+    <!-- Same typography as the MAKHANAM homepage -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            charcoal: '#17110D',
+                            dark: '#241C17',
+                            cocoa: '#4A3629',
+                            earth: '#5C4232',
+                            terracotta: '#C37A58',
+                            goldDeep: '#A68740',
+                            gold: '#C9A961',
+                            goldBright: '#E8CD84',
+                            cream: '#F3E9D5',
+                            ivory: '#FCF9F2'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Manrope', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --charcoal: #17110D;
+            --dark: #241C17;
+            --cocoa: #4A3629;
+            --earth: #5C4232;
+            --terracotta: #C37A58;
+            --gold: #C9A961;
+            --gold-bright: #E8CD84;
+            --cream: #F3E9D5;
+            --ivory: #FCF9F2;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--ivory);
+            color: var(--dark);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(201,169,97,.25);
+            color: var(--dark);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--charcoal); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--terracotta); }
+
+        .hero-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(23,17,13,.30) 0%,
+                rgba(23,17,13,.38) 35%,
+                rgba(23,17,13,.82) 100%
+            );
+        }
+
+        .hero-vignette {
+            background: radial-gradient(
+                circle at center,
+                transparent 20%,
+                rgba(23,17,13,.38) 100%
+            );
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(110deg, var(--cream), var(--gold), var(--gold-bright));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-dark {
+            background: rgba(36,28,23,.88);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            border: 1px solid rgba(201,169,97,.22);
+        }
+
+        .glass-light {
+            background: rgba(252,249,242,.92);
+            backdrop-filter: blur(18px) saturate(130%);
+            -webkit-backdrop-filter: blur(18px) saturate(130%);
+            border: 1px solid rgba(92,66,50,.14);
+        }
+
+        .btn-shimmer {
+            background: linear-gradient(110deg, var(--gold), var(--gold-bright), var(--gold));
+            background-size: 200% 100%;
+            transition: .35s ease;
+        }
+
+        .btn-shimmer:hover {
+            background-position: 100% 0;
+            box-shadow: 0 12px 30px rgba(201,169,97,.20);
+            transform: translateY(-1px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .9s cubic-bezier(.16,1,.3,1),
+                        transform .9s cubic-bezier(.16,1,.3,1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-input {
+            width: 100%;
+            min-height: 52px;
+            border-radius: 12px;
+            border: 1px solid rgba(92,66,50,.18);
+            background: rgba(255,255,255,.72);
+            color: var(--dark);
+            padding: 14px 16px;
+            outline: none;
+            transition: .25s ease;
+            font: inherit;
+        }
+
+        .contact-input:focus {
+            border-color: rgba(201,169,97,.8);
+            box-shadow: 0 0 0 4px rgba(201,169,97,.10);
+            background: #fff;
+        }
+
+        textarea.contact-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-card {
+            border: 1px solid rgba(92,66,50,.13);
+            background: rgba(252,249,242,.82);
+            transition: .3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(201,169,97,.42);
+            box-shadow: 0 16px 35px rgba(36,28,23,.07);
+        }
+
+        /* Premium visual transition between the light contact area and dark RFQ area. */
+        .premium-visual {
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+            background: var(--dark);
+        }
+
+        .premium-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(23,17,13,.88) 0%, rgba(23,17,13,.48) 42%, rgba(23,17,13,.18) 100%),
+                linear-gradient(to top, rgba(23,17,13,.65), transparent 52%);
+            pointer-events: none;
+        }
+
+        .premium-visual img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transform: scale(1.10);
+            transition: transform 1.5s cubic-bezier(.16,1,.3,1), filter 1.2s ease;
+            filter: saturate(.88) contrast(1.04);
+        }
+
+        .premium-visual.is-visible img {
+            transform: scale(1.02);
+            filter: saturate(1) contrast(1.02);
+        }
+
+        .premium-visual-content {
+            position: relative;
+            z-index: 2;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+        }
+
+        .premium-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 11%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(201,169,97,.55), transparent);
+            z-index: 2;
+        }
+
+        @media (max-width: 640px) {
+            .glass-dark,
+            .glass-light {
+                backdrop-filter: blur(12px) saturate(130%);
+                -webkit-backdrop-filter: blur(12px) saturate(130%);
+            }
+
+            .tap-target {
+                min-height: 44px;
+            }
+
+            .contact-input {
+                min-height: 50px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="bg-brand-dark text-brand-cream border-b border-brand-gold/20 py-2.5 px-3 text-[9px] sm:text-xs font-medium tracking-wider sm:tracking-widest text-center flex items-center justify-between gap-2 z-50 relative">
+        <div class="hidden lg:block text-brand-gold/70 whitespace-nowrap">Makhanam • BIHAR</div>
+        
+        <div class="mx-auto flex flex-wrap sm:flex-nowrap items-center justify-center gap-1.5 sm:gap-2 min-w-0">
+            <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-pulse shrink-0"></span>
+            <span class="leading-tight">PREMIUM RAW MAKHANA PROCESSING • WHOLESALE SUPPLY</span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-2 text-brand-cream/80 font-mono whitespace-nowrap">
+            <span>GSTIN:</span><span class="text-brand-gold">10ELYPK4010H1Z9</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation — matched to index.html -->
+    <header class="sticky top-0 z-40 w-full transition-all duration-300 glass-dark text-brand-ivory">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+            <button onclick="toggleMobileNav()" aria-label="Open Navigation Menu" class="lg:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none tap-target flex items-center justify-center">
+                <i class="fa-solid fa-bars-staggered text-lg sm:text-xl"></i>
+            </button>
+
+            <a href="index.html" class="flex items-center gap-2 sm:gap-3 group min-w-0">
+                <div class="w-9 h-9 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark group-hover:border-brand-gold transition-colors shrink-0">
+                    <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
+                </div>
+                <div class="flex flex-col min-w-0">
+                    <span class="font-serif text-xl sm:text-2xl lg:text-3xl tracking-[0.12em] sm:tracking-[0.16em] font-light text-brand-cream uppercase group-hover:text-brand-gold transition-colors">Makhanam</span>
+                    <span class="text-[8px] sm:text-[9px] tracking-[0.24em] text-brand-gold uppercase font-sans font-semibold -mt-1">Premium Raw Makhana</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.16em] font-medium text-brand-cream/90">
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a>
+                <a href="index.html#services" class="hover:text-brand-gold transition-colors">Our Services</a>
+                <a href="index.html#partner" class="hover:text-brand-gold transition-colors">Why Partner</a>
+                <a href="sizecaliperguide.html" class="hover:text-brand-gold transition-colors">Grading</a>
+                <a href="contactus.html" class="text-brand-gold">Contact</a>
+            </nav>
+
+            <a href="tel:+918292176088" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold/30 text-brand-gold text-[10px] uppercase tracking-widest hover:border-brand-gold hover:bg-brand-gold/10 transition-all">
+                <i class="fa-solid fa-phone"></i><span>Contact Us</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation — matched to index.html -->
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+        <div class="absolute inset-0 bg-brand-dark/85 backdrop-blur-md" onclick="toggleMobileNav()"></div>
+        <div id="mobile-menu-content" class="absolute top-0 left-0 bottom-0 w-[86%] max-w-sm bg-brand-dark text-brand-cream border-r border-brand-gold/20 p-6 sm:p-8 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-out drawer-slide pointer-events-auto">
+            <div>
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-brand-gold/20">
+                    <span class="font-serif text-2xl tracking-widest text-brand-cream">Makhanam</span>
+                    <button onclick="toggleMobileNav()" class="text-brand-gold text-xl p-2 tap-target" aria-label="Close Navigation Menu"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <nav class="flex flex-col space-y-5 text-sm uppercase tracking-[0.16em] font-medium">
+                    <a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a>
+                    <a href="index.html#services" class="hover:text-brand-gold transition-colors">Our Services</a>
+                    <a href="index.html#partner" class="hover:text-brand-gold transition-colors">Why Partner</a>
+                    <a href="sizecaliperguide.html" class="hover:text-brand-gold transition-colors">Premium Grading</a>
+                    <a href="contactus.html" class="text-brand-gold hover:text-brand-gold-bright transition-colors">Contact Us</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-brand-gold/20 space-y-3">
+                <p class="text-[10px] font-mono uppercase tracking-widest text-brand-gold">GSTIN</p>
+                <p class="text-sm text-brand-cream/80">10ELYPK4010H1Z9</p>
+                <a data-whatsapp href="https://wa.me/918340493639" class="inline-flex items-center gap-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
+                     <i class="fa-brands fa-whatsapp"></i><span>WhatsApp Bulk Enquiry</span>
+                 </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="relative min-h-[430px] sm:min-h-[500px] lg:min-h-[570px]
+                        flex items-center overflow-hidden bg-brand-charcoal text-brand-ivory">
+
+            <div class="absolute inset-0">
+                <img src="6+.jpeg"
+                     alt="Premium raw Makhana"
+                     class="w-full h-full object-cover"
+                     onerror="this.style.display='none'">
+            </div>
+
+            <div class="absolute inset-0 hero-overlay"></div>
+            <div class="absolute inset-0 hero-vignette"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8
+                        py-20 sm:py-24 lg:py-28 text-center">
+
+                <div class="reveal inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2
+                            rounded-full border border-brand-gold/30 bg-brand-dark/60 backdrop-blur-md
+                            text-brand-gold text-[9px] sm:text-xs tracking-[0.18em] uppercase font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                    Wholesale & Export Enquiries
+                </div>
+
+                <h1 class="reveal font-serif text-[clamp(2.7rem,8vw,6rem)] font-light
+                           leading-[.98] tracking-tight mt-6 sm:mt-7">
+                    Partner With <span class="italic text-gold-gradient">MAKHANAM</span>
+                </h1>
+
+                <p class="reveal max-w-2xl mx-auto mt-6 sm:mt-7 text-sm sm:text-base lg:text-lg
+                          leading-relaxed text-brand-cream/80 font-light">
+                    Whether you need domestic wholesale supply in India or CIF/FOB quotations
+                    for international export, our team is ready to assist with your raw Makhana requirements.
+                </p>
+
+                <div class="reveal flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
+                    <a href="#rfq"
+                       class="tap-target inline-flex items-center justify-center px-7 sm:px-8 py-3.5 rounded-full
+                              btn-shimmer text-brand-dark text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold">
+                        Request Export Quote
+                    </a>
+                    <a href="https://wa.me/918340493639"
+                       class="tap-target inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full
+                              border border-brand-gold/40 text-brand-cream text-[10px] sm:text-xs
+                              tracking-[0.2em] uppercase hover:border-brand-gold hover:bg-brand-gold/10 transition-all">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT INTRO + CARDS -->
+        <section class="py-16 sm:py-20 lg:py-24 bg-brand-ivory text-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="max-w-3xl mx-auto text-center reveal">
+                    <span class="text-brand-terracotta text-[10px] sm:text-xs uppercase
+                                 tracking-[0.22em] font-semibold">
+                        Export Office & Hub
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-tight mt-3">
+                        Let’s Discuss Your <span class="italic text-brand-earth">Requirement</span>
+                    </h2>
+                    <p class="text-brand-dark/70 text-sm sm:text-base leading-relaxed mt-5">
+                        Share your required grade, quantity, packaging preference and destination.
+                        Our team can then respond with the relevant supply and quotation details.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10 sm:mt-14">
+
+                    <a href="mailto:export@makhanam.com"
+                       class="contact-card rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="text-[9px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mt-5">
+                            Export Email
+                        </div>
+                        <div class="font-serif text-xl text-brand-dark mt-1 break-all">
+                            export@makhanam.com
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/918340493639"
+                       class="contact-card rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="text-[9px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mt-5">
+                            Bulk RFQ / WhatsApp
+                        </div>
+                        <div class="font-serif text-xl text-brand-dark mt-1">
+                            +91 83404 93639
+                        </div>
+                    </a>
+
+                    <div class="contact-card rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="text-[9px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mt-5">
+                            Processing Hub
+                        </div>
+                        <div class="font-serif text-xl text-brand-dark mt-1">
+                            Darbhanga, Bihar
+                        </div>
+                    </div>
+
+                    <div class="contact-card rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <div class="text-[9px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mt-5">
+                            Export HQ
+                        </div>
+                        <div class="font-serif text-xl text-brand-dark mt-1">
+                            New Delhi, India
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PREMIUM VISUAL TRANSITION -->
+        <section class="bg-brand-cream text-brand-ivory">
+            <div class="premium-visual reveal" id="premiumVisual">
+                <img src="6+.jpeg" alt="Premium raw Makhana from Bihar" loading="lazy" onerror="this.style.display='none'">
+                <span class="premium-divider hidden md:block"></span>
+                <div class="premium-visual-content max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-2xl py-16 sm:py-20 lg:py-24">
+                        <div class="inline-flex items-center gap-3 text-brand-gold text-[10px] sm:text-xs uppercase tracking-[0.24em] font-semibold mb-5">
+                            <span class="w-10 h-px bg-brand-gold"></span>
+                            <span>Mithila • Bihar</span>
+                        </div>
+                        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.02]">
+                            From the wetland <span class="italic text-gold-gradient">to your supply chain.</span>
+                        </h2>
+                        <p class="text-brand-cream/75 text-sm sm:text-base leading-relaxed mt-5 max-w-xl">
+                            Premium raw Makhana processing, grading and wholesale coordination for businesses that need a dependable source from Bihar.
+                        </p>
+                        <div class="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3 text-[10px] uppercase tracking-[0.18em] text-brand-cream/65">
+                            <span>Raw Makhana</span><span class="text-brand-gold">•</span><span>Wholesale</span><span class="text-brand-gold">•</span><span>FOB / CIF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RFQ SECTION -->
+        <section id="rfq" class="py-16 sm:py-20 lg:py-28 bg-brand-dark text-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+
+                    <!-- LEFT -->
+                    <div class="lg:col-span-5 reveal lg:sticky lg:top-28">
+
+                        <span class="text-brand-gold text-[10px] sm:text-xs uppercase
+                                     tracking-[0.22em] font-semibold">
+                            Request for Quotation
+                        </span>
+
+                        <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.02] mt-3">
+                            Tell Us What You <span class="italic text-brand-gold">Need</span>
+                        </h2>
+
+                        <p class="text-brand-cream/70 text-sm sm:text-base leading-relaxed mt-6">
+                            For a faster response, include your expected volume, grade, packaging,
+                            destination and whether the requirement is domestic or international.
+                        </p>
+
+                        <div class="mt-8 sm:mt-10 space-y-4">
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-9 h-9 shrink-0 rounded-full border border-brand-gold/30
+                                            text-brand-gold flex items-center justify-center">
+                                    <i class="fa-solid fa-box text-xs"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-brand-cream">Bulk / Wholesale Supply</div>
+                                    <div class="text-xs text-brand-cream/50 mt-1">Domestic requirements across India.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-9 h-9 shrink-0 rounded-full border border-brand-gold/30
+                                            text-brand-gold flex items-center justify-center">
+                                    <i class="fa-solid fa-ship text-xs"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-brand-cream">FOB / CIF Export Enquiries</div>
+                                    <div class="text-xs text-brand-cream/50 mt-1">Share your destination port for quotation context.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <div class="w-9 h-9 shrink-0 rounded-full border border-brand-gold/30
+                                            text-brand-gold flex items-center justify-center">
+                                    <i class="fa-solid fa-tag text-xs"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-brand-cream">Private Label / OEM</div>
+                                    <div class="text-xs text-brand-cream/50 mt-1">Tell us about your packaging or distribution requirement.</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-brand-gold/15">
+                            <div class="text-[9px] uppercase tracking-[0.2em] text-brand-gold/80">Business Registration</div>
+                            <div class="font-mono text-xs text-brand-cream/70 mt-2">GSTIN: 10ELYPK4010H1Z9</div>
+                        </div>
+                    </div>
+
+                    <!-- FORM -->
+                    <div class="lg:col-span-7 reveal">
+                        <form id="rfqForm"
+                              class="bg-brand-ivory rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-9 text-brand-dark shadow-2xl">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+
+                                <div>
+                                    <label for="fullName" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Full Name *
+                                    </label>
+                                    <input id="fullName" name="fullName" type="text" required
+                                           class="contact-input" placeholder="Your name">
+                                </div>
+
+                                <div>
+                                    <label for="companyName" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Company Name
+                                    </label>
+                                    <input id="companyName" name="companyName" type="text"
+                                           class="contact-input" placeholder="Company / Brand">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Email *
+                                    </label>
+                                    <input id="email" name="email" type="email" required
+                                           class="contact-input" placeholder="you@company.com">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Phone / WhatsApp *
+                                    </label>
+                                    <input id="phone" name="phone" type="tel" required
+                                           class="contact-input" placeholder="+91">
+                                </div>
+
+                                <div>
+                                    <label for="inquiry" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Inquiry Type *
+                                    </label>
+                                    <select id="inquiry" name="inquiry" required class="contact-input">
+                                        <option value="">Select inquiry</option>
+                                        <option>Domestic Wholesale (India)</option>
+                                        <option>International Export (FOB/CIF)</option>
+                                        <option>Private Label / OEM</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="grade" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Interested Grade
+                                    </label>
+                                    <select id="grade" name="grade" class="contact-input">
+                                        <option>Send Full Catalog & Pricing</option>
+                                        <option>Grade 7+ Super Jumbo (22mm+)</option>
+                                        <option>Grade 6+ Jumbo (19mm+)</option>
+                                        <option>Grade 5+ Premium (16mm+)</option>
+                                        <option>Other / Not Sure</option>
+                                    </select>
+                                </div>
+
+                                <div class="sm:col-span-2">
+                                    <label for="message" class="block text-[10px] uppercase tracking-[0.16em] font-semibold text-brand-earth mb-2">
+                                        Message / Volume Required *
+                                    </label>
+                                    <textarea id="message" name="message" required
+                                              class="contact-input"
+                                              placeholder="Example: 5 MT, required grade, packaging preference and destination port."></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
+                                <p class="text-[10px] sm:text-xs text-brand-dark/50 leading-relaxed">
+                                    Please provide accurate business contact details so the export desk can respond.
+                                </p>
+
+                                <button type="submit"
+                                        class="tap-target w-full sm:w-auto inline-flex items-center justify-center gap-2
+                                               px-7 py-3.5 rounded-full btn-shimmer text-brand-dark
+                                               text-[10px] uppercase tracking-[0.18em] font-bold">
+                                    Submit RFQ
+                                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </button>
+                            </div>
+
+                            <div id="formMessage"
+                                 class="hidden mt-5 rounded-xl border border-brand-gold/30 bg-brand-gold/10
+                                        px-4 py-3 text-sm text-brand-dark">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="py-16 sm:py-20 bg-brand-cream text-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+                    <div class="bg-brand-ivory rounded-2xl p-6 sm:p-8 border border-brand-earth/10 reveal">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 shrink-0 rounded-full bg-brand-dark text-brand-gold
+                                        flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold">
+                                    Mithila Processing Hub
+                                </div>
+                                <h3 class="font-serif text-2xl sm:text-3xl mt-1">Darbhanga, Bihar, India</h3>
+                                <p class="text-sm text-brand-dark/60 leading-relaxed mt-3">
+                                    Processing and sourcing base for premium raw Makhana.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-ivory rounded-2xl p-6 sm:p-8 border border-brand-earth/10 reveal">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 shrink-0 rounded-full bg-brand-dark text-brand-gold
+                                        flex items-center justify-center">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold">
+                                    Export HQ
+                                </div>
+                                <h3 class="font-serif text-2xl sm:text-3xl mt-1">World Trade Tower, New Delhi</h3>
+                                <p class="text-sm text-brand-dark/60 leading-relaxed mt-3">
+                                    Export office for international B2B enquiries and coordination.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+ <!-- FOOTER -->
+    <footer class="bg-brand-charcoal text-brand-cream border-t border-brand-gold/20 pt-14 sm:pt-16 pb-10 sm:pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-brand-cream/10">
+                <div class="sm:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark">
+                            <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
+                        </div>
+                        <span class="font-serif text-2xl tracking-[0.12em] font-light text-brand-cream uppercase">Makhanam</span>
+                    </div>
+                    <p class="text-xs text-brand-cream/70 max-w-md leading-relaxed font-light">
+                        Makhanam, based in Bihar, is a dedicated specialist in premium raw Makhana (Foxnut) processing and a manufacturer for wholesalers.
+                    </p>
+                    <div class="pt-2 text-[11px] font-mono text-brand-gold uppercase tracking-wider">
+                        PREMIUM RAW MAKHANA •  BIHAR
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Explore</h4>
+                    <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-brand-gold transition-colors">Our Services</a></li>
+                        <li><a href="#partner" class="hover:text-brand-gold transition-colors">Why Partner</a></li>
+                        <li><a href="#grading" class="hover:text-brand-gold transition-colors">Grading Specifications</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Contact</h4>
+                    <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
+                        <li>Darbhanga, Bihar</li>
+                        <li><a href="tel:+918292176088" class="hover:text-brand-gold">+91 8340493639</a></li>
+                         <li><a data-whatsapp href="#" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
+                        <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"></a></li>
+                        <!-- <li>GSTIN: </li> -->
+                        <span>GSTIN:</span><span >10ELYPK4010H1Z9</span>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-cream/50 font-sans gap-3 text-center sm:text-left">
+                <div>&copy; 2026 Makhanam. All rights reserved.</div>
+                <div>Premium Raw Makhana Processing • Manufacturer for Wholesalers</div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        /* =========================================================
+           INDEX-STYLE MOBILE NAVIGATION
+        ========================================================= */
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const content = document.getElementById('mobile-menu-content');
+            if (!drawer || !content) return;
+            const isOpen = drawer.classList.contains('opacity-100');
+            if (!isOpen) {
+                drawer.classList.remove('pointer-events-none', 'opacity-0');
+                drawer.classList.add('opacity-100');
+                content.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.add('pointer-events-none', 'opacity-0');
+                drawer.classList.remove('opacity-100');
+                content.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const link = event.target.closest('#mobile-nav-drawer a');
+            if (!link) return;
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const content = document.getElementById('mobile-menu-content');
+            if (!drawer || !content) return;
+            drawer.classList.add('pointer-events-none', 'opacity-0');
+            drawer.classList.remove('opacity-100');
+            content.classList.add('-translate-x-full');
+            document.body.style.overflow = '';
+        });
+
+        // Reveal animations — same interaction style as the main site.
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.10 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const premiumVisual = document.getElementById('premiumVisual');
+        if (premiumVisual && 'IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.18 });
+            imageObserver.observe(premiumVisual);
+        }
+
+
+        // Front-end form feedback only.
+        // Connect this handler to the site's real backend/email/RFQ endpoint when available.
+        document.getElementById('rfqForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const message = document.getElementById('formMessage');
+            message.textContent = 'Thank you. Your RFQ details have been captured on this page. Connect this form to your production RFQ endpoint to send the enquiry to the export desk.';
+            message.classList.remove('hidden');
+
+            event.target.reset();
+        });
+    </script>
+
+</body>
+</html>

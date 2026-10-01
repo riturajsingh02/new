@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2E2620">
+    <title>MAKHANAM — Purveyors of Mithila Lotus Seed Heritage</title>
+    <meta name="description" content="MAKHANAM brings single-origin, hand-harvested GI-tagged makhana from the sacred wetlands of Bihar, elevated with artisanal botanicals and ancient roasting techniques.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brand: {
+                        charcoal:     '#17110D',
+                        dark:         '#241C17',
+                        cocoa:        '#4A3629',   /* NEW mid-tone */
+                        earth:        '#5C4232',
+                        terracotta:   '#C37A58',
+                        goldDeep:     '#A68740',   /* NEW deep gold */
+                        gold:         '#C9A961',
+                        goldBright:   '#E8CD84',
+                        cream:        '#F3E9D5',
+                        ivory:        '#FCF9F2',
+                        overlay:      'rgba(36, 28, 23, 0.72)'
+                    }
+                },
+                fontFamily: {
+                    serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                    sans:  ['Manrope', 'sans-serif']
+                },
+                animation: {
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'float': 'float 6s ease-in-out infinite',
+                    'spin-slow': 'spin 18s linear infinite'
+                },
+                keyframes: {
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0px)' },
+                        '50%':      { transform: 'translateY(-10px)' }
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+    <!-- FontAwesome for refined UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* ---------- Root Color Tokens (Refined) ---------- */
+:root {
+    /* ---- Dark Foundation (deeper, warmer espresso tones) ---- */
+    --brand-charcoal:  #17110D;  /* true deep espresso — footer, contrast anchor */
+    --brand-dark:      #241C17;  /* rich dark brown — primary surface */
+
+    /* ---- Mid Tones (new) ---- */
+    --brand-cocoa:     #4A3629;  /* mid-tone for dividers, borders, secondary text */
+
+    /* ---- Earth Accents (warm neutrals) ---- */
+    --brand-earth:     #5C4232;  /* deep earth — primary text on light */
+    --brand-terracotta:#C37A58;  /* brighter terracotta — distinct accent */
+
+    /* ---- Gold Trio (deep / base / bright) ---- */
+    --brand-gold-deep: #000000;  /* deep gold — subtle accents, hover states */
+    --brand-gold:      #C9A961;  /* antique gold — primary accent (brighter) */
+    --brand-gold-bright:#000000; /* bright gold — highlights, shimmer mid-point */
+
+    /* ---- Light Surfaces (warm, clean) ---- */
+    --brand-cream:     #F3E9D5;  /* warm makhana cream — section backgrounds */
+    --brand-ivory:     #FCF9F2;  /* soft ivory — primary light surface */
+}
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--brand-charcoal); }
+::-webkit-scrollbar-thumb {
+    background: var(--brand-gold);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--brand-terracotta); }
+
+/* ---------- Glassmorphism (rgba synced to tokens) ---------- */
+.glass-dark {
+    background: rgba(36, 28, 23, 0.82);                 /* = brand-dark */
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(201, 169, 97, 0.22);          /* = brand-gold */
+}
+.glass-light {
+    background: rgba(252, 249, 242, 0.88);               /* = brand-ivory */
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    border: 1px solid rgba(92, 66, 50, 0.14);            /* = brand-earth */
+}
+
+/* ---------- Gold Gradient Text (refined stops) ---------- */
+.text-gold-gradient {
+    background: linear-gradient(135deg,
+        #FCF9F2 0%,      /* ivory highlight */
+        #C9A961 45%,     /* antique gold */
+        #E8CD84 100%);   /* bright gold */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Hero Cinematic Overlay (fading) ---------- */
+.hero-overlay {
+    background:
+        linear-gradient(to top,
+            rgba(23, 17, 13, 0.98) 0%,      /* brand-charcoal */
+            rgba(23, 17, 13, 0.78) 22%,
+            rgba(23, 17, 13, 0.42) 50%,
+            rgba(23, 17, 13, 0.18) 72%,
+            rgba(23, 17, 13, 0.42) 100%);
+    animation: heroFadeIn 1.6s ease-out forwards;
+}
+.hero-vignette {
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            transparent 38%,
+            rgba(23, 17, 13, 0.45) 100%);   /* brand-charcoal */
+    animation: heroFadeIn 2.2s ease-out forwards;
+}
+.hero-video {
+    animation: heroZoom 18s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes heroZoom {
+    from { transform: scale(1.12); }
+    to   { transform: scale(1.02); }
+}
+
+/* ---------- Modal & Drawer Transitions ---------- */
+.modal-backdrop { transition: opacity 0.3s ease-in-out; }
+.drawer-slide { transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ---------- Hide scrollbars for carousels ---------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ---------- Hotspot Radar Ping ---------- */
+@keyframes radar-ping {
+    0%   { transform: scale(0.95); opacity: 0.85; }
+    50%  { transform: scale(1.7);  opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+}
+.radar-ring {
+    animation: radar-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ---------- Scroll-triggered fade-in ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Gold CTA Shimmer (uses new gold trio) ---------- */
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.btn-shimmer {
+    background-image: linear-gradient(110deg,
+        #C9A961 0%,      /* brand-gold */
+        #C9A961 40%,
+        #E8CD84 50%,     /* brand-gold-bright */
+        #C9A961 60%,
+        #C9A961 100%);
+    background-size: 200% 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-shimmer:hover {
+    animation: shimmer 1.6s linear infinite;
+    box-shadow: 0 12px 34px -12px rgba(201, 169, 97, 0.75); /* brand-gold */
+}
+
+/* ---------- Mobile Optimizations ---------- */
+@media (max-width: 640px) {
+    .hero-overlay {
+        background:
+            linear-gradient(to top,
+                rgba(23, 17, 13, 0.98) 0%,
+                rgba(23, 17, 13, 0.82) 30%,
+                rgba(23, 17, 13, 0.50) 58%,
+                rgba(23, 17, 13, 0.25) 80%,
+                rgba(23, 17, 13, 0.55) 100%);
+    }
+    .tap-target { min-height: 44px; }
+    .glass-dark, .glass-light {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-overlay,
+    .hero-vignette,
+    .hero-video,
+    .radar-ring,
+    .btn-shimmer:hover {
+        animation: none !important;
+    }
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+</style>
+ 
+</head>
+
+<body class="bg-brand-ivory text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-brand-dark overflow-x-hidden">
+
+    <!-- Announcement Bar -->
+    <div class="bg-brand-dark text-brand-cream border-b border-brand-gold/20 py-2.5 px-3 sm:px-4 text-[10px] sm:text-xs font-medium tracking-wider sm:tracking-widest text-center flex items-center justify-between gap-2 z-50 relative">
+        <div class="hidden lg:block text-brand-gold/70 text-[10px] whitespace-nowrap">Makhanam • BIHAR</div>
+        <div class="mx-auto flex items-center gap-2 min-w-0">
+            <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-pulse shrink-0"></span>
+            <span class="truncate sm:whitespace-normal">PREMIUM RAW MAKHANA PROCESSING • WHOLESALE SUPPLY</span>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-brand-cream/80 text-[10px] font-mono whitespace-nowrap">
+            <span>GSTIN:</span><span class="text-brand-gold">10ELYPK4010H1Z9</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-40 w-full transition-all duration-300 glass-dark text-brand-ivory">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+            <button onclick="toggleMobileNav()" aria-label="Open Navigation Menu" class="lg:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none tap-target flex items-center justify-center">
+                <i class="fa-solid fa-bars-staggered text-lg sm:text-xl"></i>
+            </button>
+
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group min-w-0">
+                <div class="w-9 h-9 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark group-hover:border-brand-gold transition-colors shrink-0">
+                    <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
+                </div>
+                <div class="flex flex-col min-w-0">
+                    <span class="font-serif text-xl sm:text-2xl lg:text-3xl tracking-[0.12em] sm:tracking-[0.16em] font-light text-brand-cream uppercase group-hover:text-brand-gold transition-colors">Makhanam</span>
+                    <span class="text-[8px] sm:text-[9px] tracking-[0.24em] text-brand-gold uppercase font-sans font-semibold -mt-1">Premium Raw Makhana</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.16em] font-medium text-brand-cream/90">
+                <a href="#about" class="hover:text-brand-gold transition-colors">About Us</a>
+                <a href="#services" class="hover:text-brand-gold transition-colors">Our Services</a>
+                <a href="#partner" class="hover:text-brand-gold transition-colors">Why Partner</a>
+                <a href="#grading" class="hover:text-brand-gold transition-colors">Grading</a>
+                <a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a>
+            </nav>
+
+            <a href="tel:+918292176088" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold/30 text-brand-gold text-[10px] uppercase tracking-widest hover:border-brand-gold hover:bg-brand-gold/10 transition-all">
+                <i class="fa-solid fa-phone"></i><span>Contact Us</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+        <div class="absolute inset-0 bg-brand-dark/85 backdrop-blur-md" onclick="toggleMobileNav()"></div>
+        <div id="mobile-menu-content" class="absolute top-0 left-0 bottom-0 w-[86%] max-w-sm bg-brand-dark text-brand-cream border-r border-brand-gold/20 p-6 sm:p-8 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-out drawer-slide pointer-events-auto">
+            <div>
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-brand-gold/20">
+                    <span class="font-serif text-2xl tracking-widest text-brand-cream">Makhanam</span>
+                    <button onclick="toggleMobileNav()" class="text-brand-gold text-xl p-2 tap-target"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <nav class="flex flex-col space-y-5 text-sm uppercase tracking-[0.16em] font-medium">
+                    <a href="#about" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">About Us</a>
+                    <a href="#services" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Our Services</a>
+                    <a href="#partner" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Why Partner</a>
+                    <a href="#grading" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Premium Grading</a>
+                    <a href="#contact" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Contact Us</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-brand-gold/20 space-y-3">
+                <p class="text-[10px] font-mono uppercase tracking-widest text-brand-gold">GSTIN</p>
+                <p class="text-sm text-brand-cream/80">10ELYPK4010H1Z9</p>
+                <a data-whatsapp href="#" class="inline-flex items-center gap-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
+                     <i class="fa-brands fa-whatsapp"></i><span>WhatsApp Bulk Enquiry</span>
+                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+  
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-shield-halved"></i> Global B2B Export Standard
+            </div>
+            <h1 class="hero-title">Premium Indian Foxnut (Makhana) <br><span class="text-gold">Graded for Global Excellence</span></h1>
+            <p class="hero-description">
+                Directly harvested from the wetlands of Mithila. Standardized by electronic caliber sizing, low moisture preservation, and certified clean packaging for international food importers and distributors.
+            </p>
+            <div class="hero-buttons">
+                <a href="#grading-guide" class="btn btn-primary btn-lg">
+                    <i class="fa-solid fa-ruler-combined"></i> View 6-Grade Caliper Chart
+                </a>
+                <a href="#calculator" class="btn btn-outline btn-lg">
+                    <i class="fa-solid fa-box"></i> Container Load Calculator
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">22mm+</span>
+                    <span class="stat-label">Super Jumbo Diameter</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">&lt; 8%</span>
+                    <span class="stat-label">Moisture Retention</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99.5%</span>
+                    <span class="stat-label">Purity & Cleanliness</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">FOB / CIF</span>
+                    <span class="stat-label">Flexible Logistics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   <section id="about"
+    class="relative min-h-[700px] sm:min-h-[750px] lg:min-h-[850px] overflow-hidden text-brand-dark">
+
+    <!-- FULL BACKGROUND IMAGE -->
+    <div class="absolute inset-0">
+        <img
+            src="Untitled design.png"
+            alt="Premium Makhana processing"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 min-h-[700px] sm:min-h-[750px] lg:min-h-[850px] flex items-center">
+
+        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
+
+            <div class="max-w-3xl reveal">
+
+                <!-- LABEL -->
+                <div class="inline-flex items-center gap-3 text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.25em] font-semibold mb-6">
+
+                    <span class="w-10 h-px bg-brand-terracotta"></span>
+
+                    <span>About Us</span>
+
+                </div>
+
+                <!-- HEADING -->
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-light leading-[1.05] text-black">
+
+                    A Dedicated Specialist in
+
+                    <span class="italic text-brand-earth">
+                        Premium Raw Makhana
+                    </span>
+
+                </h2>
+
+                <!-- DESCRIPTION -->
+                <div class="mt-7 sm:mt-8 space-y-5 max-w-2xl">
+
+                    <p class="text-black text-sm sm:text-base lg:text-lg leading-relaxed font-light">
+                        Makhanam, based in Bihar, is a dedicated specialist in premium raw Makhana (Foxnut) processing. We combine farming expertise with modern technology. Our work is focused entirely on this segment.
+                    </p>
+
+                 
+
+                </div>
+
+                <!-- INFORMATION -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 mt-10 pt-6 border-t border-black/20 max-w-2xl">
+
+                    <div>
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-2">
+                            Location
+                        </div>
+
+                        <div class="font-serif text-xl sm:text-2xl text-black">
+                          Bihar
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-2">
+                            GSTIN
+                        </div>
+
+                        <div class="font-mono text-xs sm:text-sm text-black">
+                            10ELYPK4010H1Z9
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- OUR SERVICES -->
+ <!-- ============================================
+     7-STAGE MAKHANA JOURNEY
+     From Bihar's Wetlands to Phool Makhana
+============================================= -->
+
+<section id="journey" class="py-16 sm:py-20 lg:py-24 bg-brand-dark text-brand-cream relative">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION INTRO -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16 space-y-3 sm:space-y-4 reveal">
+
+            <span class="text-brand-gold text-[11px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.25em] font-semibold">
+                From Water to Wonder
+            </span>
+
+            <h2 class="font-serif text-2xl sm:text-3xl lg:text-5xl font-light tracking-tight">
+                The 7-Stage Makhana Journey
+            </h2>
+
+            <p class="text-brand-cream/70 text-sm sm:text-base font-light leading-relaxed">
+                From the quiet wetlands of Bihar to the delicate white bloom in your bowl,
+                every Makhana passes through a patient journey shaped by water, season,
+                skilled hands and generations of farming knowledge.
+            </p>
+
+        </div>
+
+
+        <!-- JOURNEY NAVIGATION -->
+
+        <div class="-mx-4 sm:mx-0 px-4 sm:px-0 flex items-center justify-start lg:justify-center
+                    space-x-2 sm:space-x-3 lg:space-x-4 overflow-x-auto pb-4 no-scrollbar
+                    border-b border-brand-gold/20 mb-8 sm:mb-10 lg:mb-12">
+
+            <button
+                onclick="setJourneyStep(1)"
+                id="step-btn-1"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap bg-brand-gold text-brand-dark font-bold">
+                01. Wetland
+            </button>
+
+            <button
+                onclick="setJourneyStep(2)"
+                id="step-btn-2"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                02. Sowing
+            </button>
+
+            <button
+                onclick="setJourneyStep(3)"
+                id="step-btn-3"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                03. Growth
+            </button>
+
+            <button
+                onclick="setJourneyStep(4)"
+                id="step-btn-4"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                04. Transplant
+            </button>
+
+            <button
+                onclick="setJourneyStep(5)"
+                id="step-btn-5"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                05. Flower
+            </button>
+
+            <button
+                onclick="setJourneyStep(6)"
+                id="step-btn-6"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                06. Harvest
+            </button>
+
+            <button
+                onclick="setJourneyStep(7)"
+                id="step-btn-7"
+                class="journey-step-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-t-xl
+                       font-mono text-[10px] sm:text-xs tracking-wider uppercase
+                       transition-all whitespace-nowrap text-brand-cream/60 hover:text-brand-gold">
+                07. Popping
+            </button>
+
+        </div>
+
+
+        <!-- JOURNEY CONTENT CARD -->
+
+        <div class="glass-dark rounded-2xl p-5 sm:p-8 lg:p-10
+                    border border-brand-gold/20
+                    grid grid-cols-1 lg:grid-cols-12
+                    gap-6 sm:gap-8 items-center reveal">
+
+
+            <!-- TEXT -->
+
+            <div class="lg:col-span-6 space-y-5 sm:space-y-6 order-2 lg:order-1">
+
+                <div class="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs
+                            text-brand-gold uppercase tracking-widest">
+
+                    <span id="journey-step-num">
+                        STAGE 01 / 07
+                    </span>
+
+                    <span class="w-10 sm:w-12 h-px bg-brand-gold/40"></span>
+
+                </div>
+
+
+                <h3
+                    id="journey-title"
+                    class="font-serif text-xl sm:text-2xl lg:text-4xl
+                           font-light text-brand-cream">
+                    The Living Wetland
+                </h3>
+
+
+                <p
+                    id="journey-desc"
+                    class="text-brand-cream/80 text-sm sm:text-base
+                           leading-relaxed font-light">
+                    Makhana begins its journey in the water bodies of Bihar.
+                    Traditional cultivation takes place in ponds and wetlands
+                    where the crop grows in standing water, rooted in rich
+                    aquatic soil.
+                </p>
+
+
+                <!-- QUOTE / FACT CARD -->
+
+                <div class="p-3.5 sm:p-4 rounded-xl bg-brand-dark/80
+                            border border-brand-gold/15
+                            flex items-start gap-3">
+
+                    <i class="fa-solid fa-leaf text-brand-gold
+                              text-lg sm:text-xl shrink-0"></i>
+
+                    <div>
+
+                        <span
+                            id="journey-quote"
+                            class="text-xs sm:text-sm font-serif italic
+                                   text-brand-cream/90 block">
+                            “Makhana is an aquatic crop, naturally suited to
+                            the ponds and wetlands of Bihar.”
+                        </span>
+
+                        <span
+                            id="journey-source"
+                            class="text-[10px] font-mono text-brand-gold
+                                   uppercase mt-1 block">
+                            — ICAR Makhana Research Centre
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE -->
+
+            <div class="lg:col-span-6 order-1 lg:order-2">
+
+                <div class="relative rounded-xl overflow-hidden
+                            shadow-2xl aspect-[4/3]">
+
+                    <img
+                        id="journey-img"
+                        src="https://i.pinimg.com/1200x/12/a6/e9/12a6e955ec206e79e89fe087d5c56cbf.jpg"
+                        alt="Makhana cultivation in Bihar"
+                        class="w-full h-full object-cover
+                               transition-all duration-500">
+
+                    <div class="absolute inset-0
+                                bg-gradient-to-t
+                                from-brand-dark/60
+                                via-transparent
+                                to-transparent">
+                    </div>
+
+
+                    <!-- LOCATION BADGE -->
+
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4
+                                bg-brand-dark/80 backdrop-blur-md
+                                border border-brand-gold/30
+                                px-2.5 sm:px-3 py-1 rounded-full
+                                text-[9px] sm:text-[10px]
+                                font-mono text-brand-gold
+                                uppercase tracking-wider">
+
+                        <span id="journey-badge">
+                            BIHAR WETLANDS
+                        </span>
+
+                    </div>
+
+
+                    <!-- STAGE NUMBER -->
+
+                    <div class="absolute bottom-4 left-4">
+
+                        <span
+                            id="journey-image-stage"
+                            class="font-mono text-xs tracking-[0.2em]
+                                   text-brand-cream/80 uppercase">
+                            STAGE 01
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- WHY PARTNER -->
+    <section id="partner" class="py-16 sm:py-20 lg:py-24 bg-brand-cream text-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold">Why Partner with Makhanam?</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-tight mt-3">
+                        Built Around <span class="italic text-brand-earth">Wholesale Requirements</span>
+                    </h2>
+                    <p class="text-brand-charcoal/80 text-sm sm:text-base leading-relaxed font-light mt-5">
+                        Makhanam supports wholesalers, exporters and white labelers with reliable raw Makhana supply, grading and packaging options tailored to distribution requirements.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 reveal">
+                    <div class="bg-brand-ivory rounded-2xl p-6 sm:p-7 border border-brand-earth/15 shadow-sm">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-dark">Our Clients</h3>
+                        <p class="text-sm text-brand-charcoal/75 leading-relaxed mt-3">
+                            Our client portfolio includes well-known brands such as “Big Basket” among various exporters and white labelers.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-ivory rounded-2xl p-6 sm:p-7 border border-brand-earth/15 shadow-sm">
+                        <div class="w-11 h-11 rounded-full bg-brand-dark text-brand-gold flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-dark">Our Products</h3>
+                        <p class="text-sm text-brand-charcoal/75 leading-relaxed mt-3">
+                            We accommodate all wholesale needs, offering reliable bulk supply in large-capacity gunny bags and custom, smaller packaging options tailored precisely to retail or distribution requirements.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-dark rounded-2xl p-6 sm:p-7 text-brand-cream border border-brand-gold/20 md:col-span-2">
+                        <div class="flex flex-col sm:flex-row gap-5 sm:gap-7 items-start">
+                            <div class="w-11 h-11 rounded-full bg-brand-gold text-brand-dark flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl">Compliance & Certifications</h3>
+                                <p class="text-sm text-brand-cream/75 leading-relaxed mt-3 max-w-3xl">
+                                    We maintain comprehensive compliance measures & industry-recognized certifications like FSSAI that ensure product quality & trust for customers PAN India.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRADING SPECIFICATIONS -->
+    <section id="grading" class="py-16 sm:py-20 lg:py-24 bg-brand-ivory text-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal">
+                <span class="text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold">Premium Makhana</span>
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-5xl font-light mt-2">Our Premium Makhana Grading Specifications</h2>
+                <p class="text-brand-charcoal/65 text-sm mt-4">Premium grading categories and size ranges as presented in the Makhanam catalogue.</p>
+            </div>
+
+            <div id="grading-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                <!-- Grading cards injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WHOLESALE / CONTACT -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-24 bg-brand-dark text-brand-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                <div class="lg:col-span-7 reveal">
+                    <span class="text-brand-gold text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold">Wholesale Enquiries</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-6xl font-light leading-tight mt-3">
+                        Let’s Build a Reliable <span class="italic text-gold-gradient">Makhana Supply</span>
+                    </h2>
+                    <p class="text-brand-cream/70 text-sm sm:text-base leading-relaxed max-w-2xl mt-5">
+                        Connect with Makhanam for premium raw Makhana, bulk supply, grading requirements and packaging options for retail or distribution.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-5 reveal">
+                    <div class="glass-dark rounded-2xl p-6 sm:p-8 border border-brand-gold/20 space-y-5">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-brand-gold mb-1">Company</div>
+                            <div class="font-serif text-2xl">Makhanam</div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-brand-gold">Location</div>
+                                <p class="text-sm text-brand-cream/75">Bihar</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone text-brand-gold mt-1"></i>
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-brand-gold">Phone</div>
+                                <a href="tel:+918292176088" class="text-sm text-brand-cream/75 hover:text-brand-gold">+91 8340493639</a>
+                                 <a data-whatsapp href="#" class="inline-flex items-center gap-2 mt-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
+                                     <i class="fa-brands fa-whatsapp"></i>
+                                     <span>WhatsApp for Bulk Enquiry</span>
+                                 </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-envelope text-brand-gold mt-1"></i>
+                            <div class="min-w-0">
+                                <div class="text-[10px] uppercase tracking-widest text-brand-gold">Email</div>
+                                <a href="mailto:" class="text-sm text-brand-cream/75 hover:text-brand-gold break-all"></a>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-brand-gold/15">
+                            <div class="text-[10px] uppercase tracking-widest text-brand-gold mb-1">GSTIN</div>
+                            <div class="font-mono text-sm">10ELYPK4010H1Z9</div>
+                        </div>
+                        <a href="mailto:greenfieldagro2024@gmail.com?subject=Wholesale%20Makhana%20Enquiry" class="block w-full py-3.5 rounded-full btn-shimmer text-brand-dark text-xs uppercase tracking-[0.2em] font-bold text-center">
+                            Send Wholesale Enquiry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-charcoal text-brand-cream border-t border-brand-gold/20 pt-14 sm:pt-16 pb-10 sm:pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-brand-cream/10">
+                <div class="sm:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark">
+                            <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
+                        </div>
+                        <span class="font-serif text-2xl tracking-[0.12em] font-light text-brand-cream uppercase">Makhanam</span>
+                    </div>
+                    <p class="text-xs text-brand-cream/70 max-w-md leading-relaxed font-light">
+                        Makhanam, based in Bihar, is a dedicated specialist in premium raw Makhana (Foxnut) processing and a manufacturer for wholesalers.
+                    </p>
+                    <div class="pt-2 text-[11px] font-mono text-brand-gold uppercase tracking-wider">
+                        PREMIUM RAW MAKHANA •  BIHAR
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Explore</h4>
+                    <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-brand-gold transition-colors">Our Services</a></li>
+                        <li><a href="#partner" class="hover:text-brand-gold transition-colors">Why Partner</a></li>
+                        <li><a href="#grading" class="hover:text-brand-gold transition-colors">Grading Specifications</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Contact</h4>
+                    <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
+                        <li>Darbhanga, Bihar</li>
+                        <li><a href="tel:+918292176088" class="hover:text-brand-gold">+91 8340493639</a></li>
+                         <li><a data-whatsapp href="#" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
+                        <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"></a></li>
+                        <li>GSTIN: </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-cream/50 font-sans gap-3 text-center sm:text-left">
+                <div>&copy; 2026 Makhanam. All rights reserved.</div>
+                <div>Premium Raw Makhana Processing • Manufacturer for Wholesalers</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST -->
+    <div id="toast-container" class="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-[60] space-y-2 pointer-events-none max-w-[calc(100vw-1.5rem)]"></div>
+
+  
+<script>
+/* =========================================================
+   MAKHANA WEBSITE — MAIN JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+   1. SERVICES DATA
+========================================================= */
+
+const SERVICES_DATA = {
+
+    1: {
+        num: 'SERVICE 01 / 03',
+        title: 'Advanced Color Sorting',
+        desc: 'Employing specialized optical machinery for automated colour sorting of popped Makhana (Lawa), removing discolored or inferior kernels.',
+        highlight: 'Automated colour sorting of popped Makhana (Lawa), removing discolored or inferior kernels.',
+        badge: 'ADVANCED SORTING',
+        img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=1000'
+    },
+
+    2: {
+        num: 'SERVICE 02 / 03',
+        title: 'Traditional Handpicking',
+        desc: 'Utilizing skilled local labor for the delicate process of handpicking raw Makhana seeds from the pond bed, ensuring minimal damage and high initial purity.',
+        highlight: 'Skilled local labor supports minimal damage and high initial purity during handpicking.',
+        badge: 'TRADITIONAL HANDPICKING',
+        img: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1000'
+    },
+
+    3: {
+        num: 'SERVICE 03 / 03',
+        title: 'Precision Grading',
+        desc: 'Implementing rigorous grading based on size, density, and puff quality, separating the kernels into premium, standardized categories.',
+        highlight: 'Rigorous grading based on size, density, and puff quality into premium, standardized categories.',
+        badge: 'PRECISION GRADING',
+        img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=1000'
+    }
+
+};
+
+
+/* =========================================================
+   2. GRADING DATA
+========================================================= */
+
+const GRADING_DATA = [
+
+    {
+        grade: '6+ HP',
+        size: '19–24 mm',
+        image: '6+.jpeg'
+    },
+
+    {
+        grade: '5+ HP',
+        size: '15.75–24 mm',
+        image: 'https://pixabay.com/images/download/kumarsu6745-asia-10089951_1920.jpg'
+    },
+
+    {
+        grade: '5 HP',
+        size: '15.7–19 mm',
+        image: 'https://pixabay.com/images/download/kumarsu6745-lotus-seed-10089952_1920.jpg'
+    },
+
+    {
+        grade: '5+',
+        size: '15.75–24 mm',
+        image: 'https://images.pexels.com/photos/29246691/pexels-photo-29246691.jpeg'
+    },
+
+    {
+        grade: '4+ HP',
+        size: '12.5–24 mm',
+        image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=800'
+    },
+
+    {
+        grade: '4 HP',
+        size: '12.5–15.5 mm',
+        image: '4 suta.jpeg'
+    },
+
+    {
+        grade: '4+',
+        size: '12.5–24 mm',
+        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=800'
+    },
+
+    {
+        grade: '4',
+        size: '12.5–15.5 mm',
+        image: 'https://images.unsplash.com/photo-1528733931641-f06b642a8b98?auto=format&fit=crop&q=80&w=800'
+    }
+
+];
+
+
+/* =========================================================
+   3. SEVEN-STAGE MAKHANA JOURNEY
+========================================================= */
+
+const JOURNEY_DATA = {
+
+    1: {
+        num: 'STAGE 01 / 07',
+        title: 'The Living Wetland',
+        desc: 'The journey begins in the water bodies of Bihar. Traditional Makhana is cultivated in ponds and wetlands where the crop grows in standing water, rooted in the aquatic environment.',
+        quote: 'Before the first seed is sown, the water must be ready to receive it.',
+        source: '— Traditional Makhana Cultivation',
+        badge: 'BIHAR WETLANDS',
+        img: './mukka_cultivation.jpg'
+    },
+
+    2: {
+        num: 'STAGE 02 / 07',
+        title: 'The First Seed',
+        desc: 'The journey begins with the Makhana seed. In traditional pond cultivation, seeds from the previous crop can provide planting material, while improved systems raise young seedlings before transplanting them into the main field.',
+        quote: 'Every harvest begins with something small, placed carefully beneath the water.',
+        source: '— Makhana Cultivation',
+        badge: 'SEED SOWING',
+        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+    },
+
+    3: {
+        num: 'STAGE 03 / 07',
+        title: 'Life Beneath the Surface',
+        desc: 'After germination, young Makhana plants begin developing beneath and around the water surface. Gradually, their distinctive round leaves emerge and begin spreading across the pond.',
+        quote: 'Much of the journey happens where the eye cannot see.',
+        source: '— Makhana Growth Cycle',
+        badge: 'EARLY GROWTH',
+        img: 'https://i.pinimg.com/1200x/7a/9f/72/7a9f720a9cd2df6afd5413adde82a96f.jpg'
+    },
+
+    4: {
+        num: 'STAGE 04 / 07',
+        title: 'The Floating Canopy',
+        desc: 'As the plants mature, large floating leaves spread across the water. In field-based cultivation, young seedlings are transplanted and carefully managed until the growing Makhana plants create a dense green canopy.',
+        quote: 'Slowly, one leaf becomes many — until the water turns into a living green landscape.',
+        source: '— Makhana Field Cultivation',
+        badge: 'MAKHANA FIELD',
+        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+    },
+
+    5: {
+        num: 'STAGE 05 / 07',
+        title: 'The Flower Beneath',
+        desc: 'Once the plant matures, its distinctive flower appears among the floating leaves. After flowering and fruit development, the Makhana seeds mature inside the prickly fruit beneath the water.',
+        quote: 'A beautiful flower above the water hides the beginning of the harvest below.',
+        source: '— Makhana Flower & Fruit',
+        badge: 'FLOWER & FRUIT',
+        img: 'https://i.pinimg.com/1200x/64/cf/d9/64cfd9fa2b3184edf12c6234d8551afa.jpg'
+    },
+
+    6: {
+        num: 'STAGE 06 / 07',
+        title: 'The Underwater Harvest',
+        desc: 'When the fruits mature, the seeds settle beneath the water. Farmers enter the ponds and collect the seeds from the bottom by hand — a physically demanding process requiring patience, experience and skill.',
+        quote: 'The harvest is hidden beneath the water — and human hands bring it back to the surface.',
+        source: '— Traditional Makhana Harvesting',
+        badge: 'UNDERWATER HARVEST',
+        img: 'https://i.pinimg.com/736x/7b/21/c2/7b21c2d7b5e2460c1fbac1e44b040ab2.jpg'
+    },
+
+    7: {
+        num: 'STAGE 07 / 07',
+        title: 'The Art of Popping',
+        desc: 'After harvesting, the seeds are cleaned and dried before processing. Traditional processing involves roasting the seeds at high temperature and carefully popping them, transforming the hard dark seed into the light, crisp Phool Makhana.',
+        quote: 'From a dark seed gathered beneath the water comes the delicate white Makhana we know.',
+        source: '— Traditional Makhana Processing',
+        badge: 'PHOOL MAKHANA',
+        img: 'https://i.pinimg.com/736x/dc/08/31/dc08311ae07bce53314fb5c9712f1cae.jpg'
+    }
+
+};
+
+
+/* =========================================================
+   4. INITIALIZE EVERYTHING AFTER DOM LOAD
+========================================================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    renderGrading();
+
+    initRevealObserver();
+
+    if (document.getElementById('service-title')) {
+        setServiceStep(1);
+    }
+
+    if (document.getElementById('journey-title')) {
+        setJourneyStep(1);
+    }
+
+    preloadJourneyImages();
+    initWhatsAppLinks();
+
+});
+
+
+/* =========================================================
+   5. PRELOAD JOURNEY IMAGES
+========================================================= */
+
+function preloadJourneyImages() {
+
+    Object.values(JOURNEY_DATA).forEach(function (stage) {
+
+        if (!stage.img) return;
+
+        const image = new Image();
+
+        image.src = stage.img;
+
+    });
+
+}
+
+
+/* =========================================================
+   6. REVEAL ANIMATION OBSERVER
+========================================================= */
+
+function initRevealObserver() {
+
+    const elements = document.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window)) {
+
+        elements.forEach(function (element) {
+
+            element.classList.add('is-visible');
+
+        });
+
+        return;
+    }
+
+
+    const observer = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('is-visible');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        }
+
+    );
+
+
+    elements.forEach(function (element) {
+
+        observer.observe(element);
+
+    });
+
+}
+
+
+/* =========================================================
+   7. SERVICE SWITCHER
+========================================================= */
+
+function setServiceStep(stepNum) {
+
+    const data = SERVICES_DATA[stepNum];
+
+    if (!data) {
+
+        console.warn('Service not found:', stepNum);
+
+        return;
+    }
+
+
+    const num = document.getElementById('service-num');
+    const title = document.getElementById('service-title');
+    const desc = document.getElementById('service-desc');
+    const highlight = document.getElementById('service-highlight');
+    const badge = document.getElementById('service-badge');
+    const image = document.getElementById('service-img');
+
+
+    if (num) {
+        num.textContent = data.num;
+    }
+
+    if (title) {
+        title.textContent = data.title;
+    }
+
+    if (desc) {
+        desc.textContent = data.desc;
+    }
+
+    if (highlight) {
+        highlight.textContent = data.highlight;
+    }
+
+    if (badge) {
+        badge.textContent = data.badge;
+    }
+
+
+    if (image) {
+
+        image.style.opacity = '0';
+
+        setTimeout(function () {
+
+            image.src = data.img;
+
+            image.onload = function () {
+                image.style.opacity = '1';
+            };
+
+            image.onerror = function () {
+
+                console.warn(
+                    'Unable to load service image:',
+                    data.img
+                );
+
+                image.style.opacity = '1';
+
+            };
+
+        }, 150);
+
+    }
+
+
+    document
+        .querySelectorAll('.service-step-btn')
+        .forEach(function (button) {
+
+            button.classList.remove(
+                'bg-brand-gold',
+                'text-brand-dark',
+                'font-bold'
+            );
+
+            button.classList.add(
+                'text-brand-cream/60',
+                'hover:text-brand-gold'
+            );
+
+        });
+
+
+    const activeButton =
+        document.getElementById(`service-btn-${stepNum}`);
+
+
+    if (activeButton) {
+
+        activeButton.classList.remove(
+            'text-brand-cream/60',
+            'hover:text-brand-gold'
+        );
+
+        activeButton.classList.add(
+            'bg-brand-gold',
+            'text-brand-dark',
+            'font-bold'
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   8. MAKHANA JOURNEY SWITCHER
+========================================================= */
+
+function setJourneyStep(stepNum) {
+
+    const data = JOURNEY_DATA[stepNum];
+
+    if (!data) {
+
+        console.warn('Journey stage not found:', stepNum);
+
+        return;
+    }
+
+
+    const stepNumber =
+        document.getElementById('journey-step-num');
+
+    const title =
+        document.getElementById('journey-title');
+
+    const description =
+        document.getElementById('journey-desc');
+
+    const quote =
+        document.getElementById('journey-quote');
+
+    const source =
+        document.getElementById('journey-source');
+
+    const badge =
+        document.getElementById('journey-badge');
+
+    const image =
+        document.getElementById('journey-img');
+
+    const imageStage =
+        document.getElementById('journey-image-stage');
+
+
+    if (stepNumber) {
+        stepNumber.textContent = data.num;
+    }
+
+    if (title) {
+        title.textContent = data.title;
+    }
+
+    if (description) {
+        description.textContent = data.desc;
+    }
+
+    if (quote) {
+        quote.textContent = `"${data.quote}"`;
+    }
+
+    if (source) {
+        source.textContent = data.source;
+    }
+
+    if (badge) {
+        badge.textContent = data.badge;
+    }
+
+    if (imageStage) {
+        imageStage.textContent =
+            `STAGE ${String(stepNum).padStart(2, '0')}`;
+    }
+
+
+    /*
+       Animate the current image away before
+       replacing it with the next stage.
+    */
+
+    if (image) {
+
+        image.style.opacity = '0';
+        image.style.transform = 'scale(1.04)';
+
+
+        setTimeout(function () {
+
+            image.src = data.img;
+
+
+            image.onload = function () {
+
+                image.style.opacity = '1';
+                image.style.transform = 'scale(1)';
+
+            };
+
+
+            image.onerror = function () {
+
+                console.warn(
+                    'Journey image could not be loaded:',
+                    data.img
+                );
+
+                image.style.opacity = '1';
+                image.style.transform = 'scale(1)';
+
+            };
+
+
+            if (image.complete) {
+
+                image.style.opacity = '1';
+                image.style.transform = 'scale(1)';
+
+            }
+
+        }, 180);
+
+    }
+
+
+    /*
+       Reset every Journey button.
+    */
+
+    document
+        .querySelectorAll('.journey-step-btn')
+        .forEach(function (button) {
+
+            button.classList.remove(
+                'bg-brand-gold',
+                'text-brand-dark',
+                'font-bold'
+            );
+
+            button.classList.add(
+                'text-brand-cream/60',
+                'hover:text-brand-gold'
+            );
+
+        });
+
+
+    /*
+       Highlight selected Journey stage.
+    */
+
+    const activeJourneyButton =
+        document.getElementById(`step-btn-${stepNum}`);
+
+
+    if (activeJourneyButton) {
+
+        activeJourneyButton.classList.remove(
+            'text-brand-cream/60',
+            'hover:text-brand-gold'
+        );
+
+        activeJourneyButton.classList.add(
+            'bg-brand-gold',
+            'text-brand-dark',
+            'font-bold'
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   9. BUILD GRADING SECTION
+========================================================= */
+
+function renderGrading() {
+
+    const container =
+        document.getElementById('grading-grid');
+
+
+    if (!container) {
+        return;
+    }
+
+
+    container.innerHTML = GRADING_DATA.map(function (item) {
+
+        return `
+
+            <article
+                class="group bg-brand-cream rounded-2xl
+                       overflow-hidden border border-brand-earth/15
+                       shadow-sm hover:shadow-xl
+                       transition-all duration-500">
+
+                <div
+                    class="relative aspect-[4/3]
+                           overflow-hidden bg-brand-ivory">
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.grade} Makhana grading"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                        class="w-full h-full object-cover
+                               group-hover:scale-105
+                               transition-transform duration-700"
+                    >
+
+                    <div
+                        class="absolute inset-0
+                               bg-gradient-to-t
+                               from-brand-dark/65
+                               via-transparent
+                               to-transparent">
+                    </div>
+
+                    <div
+                        class="absolute top-3 left-3
+                               bg-brand-dark/85
+                               text-brand-gold
+                               text-[10px] font-mono
+                               px-2.5 py-1 rounded-full
+                               border border-brand-gold/25">
+
+                        PREMIUM GRADE
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="p-5 sm:p-6
+                           flex items-end
+                           justify-between gap-4">
+
+                    <div>
+
+                        <div
+                            class="text-[10px]
+                                   uppercase tracking-widest
+                                   text-brand-terracotta
+                                   font-semibold">
+
+                            Grade
+
+                        </div>
+
+                        <h3
+                            class="font-serif
+                                   text-2xl sm:text-3xl
+                                   font-light
+                                   text-brand-dark mt-1">
+
+                            ${item.grade}
+
+                        </h3>
+
+                    </div>
+
+
+                    <div class="text-right">
+
+                        <div
+                            class="text-[10px]
+                                   uppercase tracking-widest
+                                   text-brand-terracotta
+                                   font-semibold">
+
+                            Size
+
+                        </div>
+
+                        <div
+                            class="font-mono text-sm
+                                   text-brand-earth mt-1">
+
+                            ${item.size}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }).join('');
+
+}
+
+
+/* =========================================================
+   10. MOBILE NAVIGATION
+========================================================= */
+
+function toggleMobileNav() {
+
+    const drawer =
+        document.getElementById('mobile-nav-drawer');
+
+    const content =
+        document.getElementById('mobile-menu-content');
+
+
+    if (!drawer || !content) {
+        return;
+    }
+
+
+    const isOpen =
+        drawer.classList.contains('opacity-100');
+
+
+    if (!isOpen) {
+
+        drawer.classList.remove(
+            'pointer-events-none',
+            'opacity-0'
+        );
+
+        drawer.classList.add('opacity-100');
+
+        content.classList.remove(
+            '-translate-x-full'
+        );
+
+        document.body.style.overflow = 'hidden';
+
+    } else {
+
+        drawer.classList.add(
+            'pointer-events-none',
+            'opacity-0'
+        );
+
+        drawer.classList.remove(
+            'opacity-100'
+        );
+
+        content.classList.add(
+            '-translate-x-full'
+        );
+
+        document.body.style.overflow = '';
+
+    }
+
+}
+
+
+/* =========================================================
+   11. MOBILE NAV LINK CLOSE
+========================================================= */
+
+document.addEventListener('click', function (event) {
+
+    const link =
+        event.target.closest('#mobile-nav-drawer a');
+
+
+    if (!link) {
+        return;
+    }
+
+
+    const drawer =
+        document.getElementById('mobile-nav-drawer');
+
+    const content =
+        document.getElementById('mobile-menu-content');
+
+
+    if (!drawer || !content) {
+        return;
+    }
+
+
+    drawer.classList.add(
+        'pointer-events-none',
+        'opacity-0'
+    );
+
+    drawer.classList.remove(
+        'opacity-100'
+    );
+
+    content.classList.add(
+        '-translate-x-full'
+    );
+
+    document.body.style.overflow = '';
+
+});
+
+
+/* =========================================================
+   12. ESCAPE KEY CLOSES MOBILE MENU
+========================================================= */
+
+document.addEventListener('keydown', function (event) {
+
+    if (event.key !== 'Escape') {
+        return;
+    }
+
+
+    const drawer =
+        document.getElementById('mobile-nav-drawer');
+
+    const content =
+        document.getElementById('mobile-menu-content');
+
+
+    if (!drawer || !content) {
+        return;
+    }
+
+
+    drawer.classList.add(
+        'pointer-events-none',
+        'opacity-0'
+    );
+
+    drawer.classList.remove(
+        'opacity-100'
+    );
+
+    content.classList.add(
+        '-translate-x-full'
+    );
+
+    document.body.style.overflow = '';
+
+});
+
+
+/* =========================================================
+   13. TOAST MESSAGE
+========================================================= */
+
+function showToast(message) {
+
+    const container =
+        document.getElementById('toast-container');
+
+
+    if (!container) {
+
+        console.warn('Toast container not found.');
+
+        return;
+    }
+
+
+    const toast =
+        document.createElement('div');
+
+
+    toast.className =
+        'glass-dark border border-brand-gold/40 ' +
+        'text-brand-cream px-4 py-3 rounded-xl ' +
+        'shadow-2xl text-[11px] sm:text-xs font-mono ' +
+        'flex items-center gap-2 ' +
+        'transform translate-y-4 opacity-0 ' +
+        'transition-all duration-300';
+
+
+    toast.innerHTML = `
+
+        <span
+            class="w-2 h-2 rounded-full
+                   bg-brand-gold shrink-0">
+        </span>
+
+        <span>${message}</span>
+
+    `;
+
+
+    container.appendChild(toast);
+
+
+    setTimeout(function () {
+
+        toast.classList.remove(
+            'translate-y-4',
+            'opacity-0'
+        );
+
+    }, 10);
+
+
+    setTimeout(function () {
+
+        toast.classList.add(
+            'translate-y-4',
+            'opacity-0'
+        );
+
+
+        setTimeout(function () {
+
+            if (toast.parentNode) {
+                toast.remove();
+            }
+
+        }, 300);
+
+    }, 3500);
+
+}
+
+
+/* =========================================================
+   14. KEYBOARD CONTROL FOR JOURNEY
+   LEFT  = PREVIOUS
+   RIGHT = NEXT
+========================================================= */
+
+document.addEventListener('keydown', function (event) {
+
+    if (!document.getElementById('journey')) {
+        return;
+    }
+
+
+    const activeButton =
+        document.querySelector(
+            '.journey-step-btn.bg-brand-gold'
+        );
+
+
+    if (!activeButton) {
+        return;
+    }
+
+
+    const currentStep =
+        parseInt(
+            activeButton.id.replace('step-btn-', ''),
+            10
+        );
+
+
+    if (
+        event.key === 'ArrowLeft' &&
+        currentStep > 1
+    ) {
+
+        setJourneyStep(currentStep - 1);
+
+    }
+
+
+    if (
+        event.key === 'ArrowRight' &&
+        currentStep < 7
+    ) {
+
+        setJourneyStep(currentStep + 1);
+
+    }
+
+});
+
+
+/* =========================================================
+   15. JOURNEY / SERVICE IMAGE TRANSITION
+========================================================= */
+
+(function addImageTransition() {
+
+    const style =
+        document.createElement('style');
+
+    style.textContent = `
+
+        #journey-img,
+        #service-img {
+            transition:
+                opacity 0.35s ease,
+                transform 0.5s ease;
+        }
+
+    `;
+
+    document.head.appendChild(style);
+
+})();
+
+/* =========================================================
+   16. WHATSAPP BULK ENQUIRY
+   Direct WhatsApp integration — no exposed API key/token.
+========================================================= */
+
+const WHATSAPP_CONFIG = {
+    number: '918340493639',
+    message: 'Hello Makhanam, I want Makhana in bulk.'
+};
+
+function getWhatsAppUrl(customMessage = WHATSAPP_CONFIG.message) {
+    return `https://wa.me/${WHATSAPP_CONFIG.number}?text=${encodeURIComponent(customMessage)}`;
+}
+
+function openWhatsApp(customMessage = WHATSAPP_CONFIG.message) {
+    const url = getWhatsAppUrl(customMessage);
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+/* Keep all WhatsApp CTAs consistent across the website. */
+function initWhatsAppLinks() {
+    const message = WHATSAPP_CONFIG.message;
+    const url = getWhatsAppUrl(message);
+
+    document.querySelectorAll('[data-whatsapp]').forEach(function (element) {
+        element.setAttribute('href', url);
+        element.setAttribute('target', '_blank');
+        element.setAttribute('rel', 'noopener noreferrer');
+    });
+}
+
+</script>
+
+</body>
+</html>
