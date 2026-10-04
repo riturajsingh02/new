@@ -23,35 +23,37 @@
 
     <!-- Announcement Bar -->
     <div class="announcement-bar">
-        <div class="announcement-col left-col">Makhanam • BIHAR</div>
+        <div class="announcement-col left-col">Makhanam • BIHAR, INDIA</div>
         <div class="announcement-col center-col">
             <span class="pulse-dot"></span>
-            <span>PREMIUM RAW MAKHANA PROCESSING • WHOLESALE SUPPLY</span>
+            <span>Free Shipping Above 100 Kg • Direct Wholesale Supply</span>
         </div>
         <div class="announcement-col right-col">
             <span>GSTIN:</span>
-            <span class="gstin-code">10ELYPK4010H1Z9</span>
+            <span class="gstin-code">10AZBPY2685B1ZL</span>
         </div>
     </div>
 
     <!-- Main Navigation Header -->
     <header class="main-header" id="mainHeader">
         <div class="header-container">
-            <!-- Mobile Menu Trigger -->
-            <button class="mobile-nav-btn" onclick="toggleMobileNav()" aria-label="Open Navigation Menu">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
+            <!-- Left Side: Mobile Menu Button + Brand Logo -->
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+                <button class="mobile-nav-btn" onclick="toggleMobileNav()" aria-label="Open Navigation Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
 
-            <!-- Brand Logo -->
-            <a href="index.html" class="brand-logo" aria-label="Makhanam Home">
-                <div class="brand-badge">
-                    <span>GA</span>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-title">Makhanam</span>
-                    <span class="brand-sub">Premium Raw Makhana</span>
-                </div>
-            </a>
+                <!-- Brand Logo -->
+                <a href="index.html" class="brand-logo" aria-label="Makhanam Home">
+                    <div class="brand-badge">
+                        <span>GA</span>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">Makhanam</span>
+                        <span class="brand-sub">Premium Raw Makhana</span>
+                    </div>
+                </a>
+            </div>
 
             <!-- Desktop Nav Links -->
             <nav class="desktop-nav">
@@ -64,42 +66,89 @@
                 <a href="contactus.html" class="nav-item">Contact</a>
             </nav>
 
-            <!-- Header CTA -->
-            <a href="tel:+918292176088" class="header-cta-btn">
-                <i class="fa-solid fa-phone"></i>
-                <span>Contact Us</span>
-            </a>
+            <!-- Right CTA (Call icon on mobile, full button on desktop) -->
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:+918340493639" class="mobile-call-btn" aria-label="Call Makhanam">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="tel:+918340493639" class="header-cta-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Contact Us</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Mobile Slide Navigation Drawer -->
+    <!-- Unified Mobile Navigation Drawer (Slides from LEFT) -->
     <div id="mobileNavDrawer" class="mobile-drawer-backdrop" onclick="toggleMobileNav(event)">
         <div class="mobile-drawer-content" id="mobileDrawerContent" onclick="event.stopPropagation()">
-            <div class="drawer-top">
+            <div>
+                <!-- Drawer Top Header -->
                 <div class="drawer-header">
-                    <span class="drawer-brand">Makhanam</span>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div class="brand-badge" style="width: 32px; height: 32px; font-size: 11px;">
+                            <span>GA</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <span class="drawer-brand" style="font-size: 20px; line-height: 1.1;">Makhanam</span>
+                            <span style="font-size: 8px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-weight: 600;">Premium Raw Makhana</span>
+                        </div>
+                    </div>
                     <button class="drawer-close-btn" onclick="toggleMobileNav()" aria-label="Close Navigation Menu">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
+
+                <!-- Navigation Links -->
                 <nav class="drawer-links">
-                    <a href="index.html">Home</a>
-                    <a href="ourstory.html">Our Story</a>
-                    <a href="about.html" class="active">About Us</a>
-                    <a href="index.html#services">Our Services</a>
-                    <a href="index.html#partner">Why Partner</a>
-                    <a href="SizeCaliperGuide.html">Premium Grading</a>
-                    <a href="contactus.html">Contact Us</a>
+                    <a href="index.html" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Home</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
+                    <a href="ourstory.html" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Our Story</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
+                    <a href="about.html" class="active" style="display: flex; align-items: center; justify-content: space-between; color: var(--gold-bright); font-weight: 600;">
+                        <span>About Us</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; color: var(--gold);"></i>
+                    </a>
+                    <a href="index.html#services" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Our Services</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
+                    <a href="index.html#partner" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Why Partner</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
+                    <a href="SizeCaliperGuide.html" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Suta Grading</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
+                    <a href="contactus.html" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>Contact Us</span>
+                        <i class="fa-solid fa-chevron-right" style="font-size: 9px; opacity: 0.4;"></i>
+                    </a>
                 </nav>
             </div>
 
+            <!-- Drawer Bottom Actions & Compliance -->
             <div class="drawer-bottom">
-                <p class="gstin-label">GSTIN</p>
-                <p class="gstin-value">10ELYPK4010H1Z9</p>
-                <a href="https://wa.me/918340493639" class="drawer-whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp Bulk Enquiry</span>
-                </a>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                    <span class="gstin-label">GSTIN</span>
+                    <span style="font-size: 10px; color: rgba(201, 169, 97, 0.8); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600;">Mithila, Bihar</span>
+                </div>
+                <p class="gstin-value">10AZBPY2685B1ZL</p>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <a href="https://wa.me/918340493639?text=Hello%20Makhanam%2C%20I%20am%20interested%20in%20bulk%20Makhana%20wholesale%20supply." class="drawer-whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp Bulk Enquiry</span>
+                    </a>
+                    <a href="tel:+918340493639" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 8px; color: var(--gold); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Call +91 83404 93639</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -107,30 +156,51 @@
     <main>
         <!-- HERO SECTION -->
         <section class="about-hero">
-            <img src="main.jpeg" alt="Makhana heritage and processing in Bihar" class="about-hero-bg" onerror="this.style.display='none'">
+            <img src="main.jpeg" alt="Makhana wetlands and processing in Bihar" class="about-hero-bg" onerror="this.style.display='none'">
             <div class="hero-bg-overlay"></div>
             <div class="hero-vignette"></div>
 
             <div class="hero-container reveal">
                 <div class="hero-tag">
                     <span class="tag-dot"></span>
-                    <span>About Makhanam</span>
+                    <span>ABOUT MAKHANAM • BIHAR, INDIA</span>
                 </div>
 
                 <h1 class="hero-heading">
                     Rooted in Bihar.<br>
-                    <span class="gold-gradient-text italic">Built for the World.</span>
+                    <span class="gold-gradient-text italic">Supplied Worldwide.</span>
                 </h1>
 
                 <p class="hero-description">
-                    Dedicated specialist in premium raw Makhana (Foxnut) processing and direct wholesale supply from Bihar’s Mithila heartland, engineered for global food businesses and distributors.
+                    Direct processor &amp; premier B2B wholesale exporter of authentic raw Makhana (Foxnuts), connecting sacred Mithila wetlands to global food enterprises.
                 </p>
+
+                <!-- Key Quick Value Badges -->
+                <div class="hero-badges-row">
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>100% Single-Origin Bihar</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>3 to 7 Suta Caliper Calibrated</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Moisture-Controlled (&lt;10%)</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Direct Farmgate Wholesale</span>
+                    </div>
+                </div>
 
                 <div class="hero-actions">
                     <a href="contactus.html#rfq" class="btn-shimmer">
-                        Request Export Quote
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>Request Export Quote</span>
                     </a>
-                    <a href="https://wa.me/918340493639" class="btn-outline" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/918340493639?text=Hello%20Makhanam%2C%20I%20would%20like%20to%20inquire%20about%20bulk%20Makhana%20supply." class="btn-outline" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-whatsapp"></i>
                         <span>WhatsApp Enquiry</span>
                     </a>
@@ -138,153 +208,292 @@
             </div>
         </section>
 
-        <!-- EDITORIAL INTRO -->
-        <section class="intro-section">
+        <!-- STATS / INFOGRAPHIC BAR -->
+        <div class="site-container">
+            <section class="stats-bar-section reveal">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">85%+</div>
+                        <div class="stat-title">Global Origin</div>
+                        <div class="stat-sub">Sourced directly from native Bihar wetlands</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">3–7</div>
+                        <div class="stat-title">Suta Calipers</div>
+                        <div class="stat-sub">Millimeter-precise electronic &amp; manual grading</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">&lt;10%</div>
+                        <div class="stat-title">Controlled Moisture</div>
+                        <div class="stat-sub">Superior crispness &amp; extended export shelf life</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">Direct</div>
+                        <div class="stat-title">Farmgate Trade</div>
+                        <div class="stat-sub">Fair pricing &amp; generational Mallah partnerships</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISUAL ORIGIN & STORY SECTION -->
+        <section class="origin-showcase-section">
             <div class="site-container">
-                <div class="intro-grid">
-                    <div class="intro-badge reveal">
-                        <span class="index-num">01</span>
-                        <span class="index-title">WHO WE ARE</span>
+                <div class="origin-layout">
+                    <!-- Left: Rich Visual Photo Gallery -->
+                    <div class="photo-stack-container reveal">
+                        <div class="photo-card-main">
+                            <img src="wetland.jpeg" alt="Makhana aquatic wetland harvesting in Mithila, Bihar">
+                            <div class="photo-overlay-tag">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Mithila Wetlands • Natural Terroir</span>
+                            </div>
+                        </div>
+                        <div class="photo-card-side">
+                            <div class="photo-card-sub">
+                                <img src="mukka_cultivation.jpg" alt="Traditional Makhana cultivation pond in Bihar">
+                                <div class="photo-overlay-tag">
+                                    <i class="fa-solid fa-water"></i>
+                                    <span>Aquatic Ecosystem</span>
+                                </div>
+                            </div>
+                            <div class="photo-card-sub">
+                                <img src="story.jpeg" alt="Generational harvesting and sun drying">
+                                <div class="photo-overlay-tag">
+                                    <i class="fa-solid fa-sun"></i>
+                                    <span>Sun Cured Quality</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="intro-text reveal">
-                        <span class="section-eyebrow">THE MAKHANAM STORY</span>
-                        <h2 class="editorial-title">
-                            Connecting the authentic origin of Foxnut with <span class="italic text-earth">modern global enterprise.</span>
-                        </h2>
+                    <!-- Right: Large, Scannable Concise Feature Cards -->
+                    <div class="origin-content-col reveal">
+                        <div>
+                            <span class="section-eyebrow">WHO WE ARE</span>
+                            <h2 class="editorial-title">
+                                Sourced at Origin. <span class="italic text-earth">Built for Scale.</span>
+                            </h2>
+                        </div>
 
-                        <p class="lead-text">
-                            Makhanam is a premier processing and wholesale supply establishment founded in the wetland heartlands of Bihar, India.
-                        </p>
+                        <div class="origin-feature-card">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-building-wheat"></i>
+                            </div>
+                            <div>
+                                <h3>Direct Origin Processing</h3>
+                                <p>Headquartered in Bihar to bypass unnecessary middlemen, guaranteeing authentic batch origin and peak crunch.</p>
+                            </div>
+                        </div>
 
-                        <p>
-                            We bridge traditional harvesting wisdom with modern sorting, grading, and moisture-controlled packaging. Our mission is to deliver uniform, handpicked raw Makhana to commercial brands, distributors, and exporters across India and international markets.
-                        </p>
+                        <div class="origin-feature-card">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <div>
+                                <h3>Strict Caliper Sorting</h3>
+                                <p>Standardized millimeter sizing ensures uniform roast expansion for commercial snack brands and packers.</p>
+                            </div>
+                        </div>
 
-                        <p>
-                            From initial pond harvesting to machine calibration and laboratory quality checks, every shipment adheres to stringent B2B specifications.
-                        </p>
+                        <div class="origin-feature-card">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-boxes-packing"></i>
+                            </div>
+                            <div>
+                                <h3>Export-Ready Packaging</h3>
+                                <p>Multi-layer moisture-barrier vacuum bags and corrugated master cartons engineered for global transit.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ORIGIN & STORY SECTION -->
-        <section class="origin-section">
-            <div class="origin-image-pane reveal">
-                <div class="origin-caption">
-                    <span class="caption-tag">GEOGRAPHICAL INDICATION</span>
-                    <strong>Mithila, Bihar (India)</strong>
-                </div>
-            </div>
-
-            <div class="origin-copy-pane reveal">
-                <span class="section-eyebrow">OUR HERITAGE</span>
-                <h2 class="editorial-title">
-                    From the pristine wetlands to your <span class="italic text-gold">supply chain.</span>
-                </h2>
-
-                <p>
-                    Over 85% of the world’s Makhana originates in northern Bihar. Makhanam operates at the direct source in Bihar, eliminating redundant intermediary layers to guarantee peak freshness, ethical farmer partnerships, and cost advantages for bulk buyers.
-                </p>
-
-                <div class="gold-divider"></div>
-
-                <div class="origin-meta">
-                    <strong class="meta-num">02</strong>
-                    <span class="meta-label">DIRECT SOURCING &amp; PROCESSING HUB</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- PILLARS / VALUES -->
-        <section class="values-section">
+        <!-- 4-STEP VISUAL QUALITY PIPELINE (With Real Photos) -->
+        <section class="visual-pipeline-section">
             <div class="site-container">
-                <div class="values-header reveal">
-                    <div>
-                        <span class="section-eyebrow">WHAT WE STAND FOR</span>
-                        <h2 class="editorial-title">Engineered around <span class="italic text-earth">integrity.</span></h2>
-                    </div>
-                    <p class="header-desc">
-                        Our operational framework delivers transparent moisture profiles, verified pop ratios, and reliable shipping timelines for our partners.
-                    </p>
-                </div>
-
-                <div class="values-grid">
-                    <article class="value-card reveal">
-                        <span class="card-num">01</span>
-                        <div class="card-symbol">✦</div>
-                        <h3>Traditional Suta Grading</h3>
-                        <p>Standardized from 3 Suta Pearl (9–12.7mm) up to 7 Suta Super Jumbo (&gt;21mm) with millimeter caliper precision.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <span class="card-num">02</span>
-                        <div class="card-symbol">◈</div>
-                        <h3>Batch Uniformity</h3>
-                        <p>Controlled moisture index below 10%, crisp texture, and negligible black spot defect tolerances.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <span class="card-num">03</span>
-                        <div class="card-symbol">∞</div>
-                        <h3>Export Logistics</h3>
-                        <p>FOB / CIF fulfillment capabilities with food-grade multi-layer moisture barrier packaging.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <span class="card-num">04</span>
-                        <div class="card-symbol">◎</div>
-                        <h3>Origin Traceability</h3>
-                        <p>100% authentic GI-region Bihar harvest sourced ethically with direct farmer support.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROCESS TIMELINE -->
-        <section class="process-section">
-            <div class="site-container">
-                <div class="process-header reveal">
-                    <span class="section-eyebrow text-gold">OUR METHODOLOGY</span>
+                <div class="section-head-center reveal">
+                    <span class="section-eyebrow text-gold">SEED TO SHIPMENT</span>
                     <h2 class="editorial-title text-cream">
-                        From raw harvest to <span class="italic text-gold-bright">certified shipment.</span>
+                        The 4-Stage <span class="italic text-gold-bright">Quality Lifecycle</span>
                     </h2>
-                    <p class="text-cream-muted">
-                        A rigorous 4-step quality lifecycle ensuring uncompromised bulk consistency.
+                    <p class="text-cream-muted" style="font-size: 16px;">
+                        Visualizing how every single Foxnut is cultivated, harvested, expanded, and calibrated under strict standards.
                     </p>
                 </div>
 
-                <div class="process-list">
-                    <div class="process-row reveal">
-                        <span class="process-num">01</span>
-                        <div class="process-info">
-                            <h3>Wetland Harvesting &amp; Sun Drying</h3>
-                            <p>Hand-harvested gorgon nut seeds cleaned and systematically sun-cured in the Mithila wetlands.</p>
+                <div class="pipeline-grid">
+                    <!-- Step 1 -->
+                    <article class="pipeline-card reveal">
+                        <div class="pipeline-img-wrap">
+                            <img src="wetland.jpeg" alt="Stage 1: Aquatic Wetland Cultivation">
+                            <span class="pipeline-step-badge">Stage 01</span>
+                        </div>
+                        <div class="pipeline-info">
+                            <h3>Wetland Cultivation</h3>
+                            <p>Naturally grown in mineral-rich standing waters of northern Bihar without synthetic growth agents.</p>
+                        </div>
+                    </article>
+
+                    <!-- Step 2 -->
+                    <article class="pipeline-card reveal">
+                        <div class="pipeline-img-wrap">
+                            <img src="harvest.jpeg" alt="Stage 2: Underwater Diver Harvest">
+                            <span class="pipeline-step-badge">Stage 02</span>
+                        </div>
+                        <div class="pipeline-info">
+                            <h3>Underwater Harvest</h3>
+                            <p>Hand-gathered from muddy pond beds by skilled generational Mallah divers, then thoroughly water-cleaned.</p>
+                        </div>
+                    </article>
+
+                    <!-- Step 3 -->
+                    <article class="pipeline-card reveal">
+                        <div class="pipeline-img-wrap">
+                            <img src="popping.jpeg" alt="Stage 3: Wood-Fired Roasting & Popping">
+                            <span class="pipeline-step-badge">Stage 03</span>
+                        </div>
+                        <div class="pipeline-info">
+                            <h3>Artisanal Popping</h3>
+                            <p>High-heat roasting and precise manual striking expand the dark shell into delicate, snow-white Makhana.</p>
+                        </div>
+                    </article>
+
+                    <!-- Step 4 -->
+                    <article class="pipeline-card reveal">
+                        <div class="pipeline-img-wrap">
+                            <img src="6+.jpeg" alt="Stage 4: Suta Caliper Grading & Pack">
+                            <span class="pipeline-step-badge">Stage 04</span>
+                        </div>
+                        <div class="pipeline-info">
+                            <h3>Caliper Grading</h3>
+                            <p>Multi-deck mechanical sieving categorizes lots from 3 Suta Pearl to 7 Suta Super Jumbo before sealed pack.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISUAL GRADING & CALIPER SHOWCASE -->
+        <section class="grading-showcase-section">
+            <div class="site-container">
+                <div class="section-head-center reveal">
+                    <span class="section-eyebrow">STANDARDIZED EXPORT SIZES</span>
+                    <h2 class="editorial-title">
+                        Visual Suta <span class="italic text-earth">Grading Calipers</span>
+                    </h2>
+                    <p style="color: var(--earth); font-size: 16px;">
+                        Standardized millimeter sizing ensures reliable portion control, puff volume, and pricing transparency.
+                    </p>
+                </div>
+
+                <div class="grading-grid">
+                    <!-- Grade 1: 6+ / 7 Suta Super Jumbo -->
+                    <div class="grade-card reveal">
+                        <div class="grade-img-box">
+                            <img src="6+.jpeg" alt="6+ Suta and 7 Suta Super Jumbo Makhana">
+                            <span class="grade-tag">6+ &amp; 7 SUTA</span>
+                        </div>
+                        <div class="grade-body">
+                            <h3>Super Jumbo / Royal</h3>
+                            <div class="grade-size-spec">&gt; 19mm to 26mm+ Diameter</div>
+                            <p>Signature large puff volume with premium white bloom. The pinnacle choice for luxury gifting and gourmet roasted snack lines.</p>
+                            <ul class="grade-specs-list">
+                                <li><i class="fa-solid fa-check"></i> <strong>Moisture:</strong> Controlled &lt; 9.5%</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Best For:</strong> Premium Flavored Snacking</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Purity:</strong> &gt; 99% Defect-Free</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="process-row reveal">
-                        <span class="process-num">02</span>
-                        <div class="process-info">
-                            <h3>Artisanal Roasting &amp; Popping</h3>
-                            <p>Precise thermal expansion ensuring optimal white puff expansion with structural integrity.</p>
+                    <!-- Grade 2: 5 Suta Royal -->
+                    <div class="grade-card reveal">
+                        <div class="grade-img-box">
+                            <img src="5+.jpg" alt="5 Suta Royal Makhana">
+                            <span class="grade-tag">5 SUTA</span>
+                        </div>
+                        <div class="grade-body">
+                            <h3>Royal Grade</h3>
+                            <div class="grade-size-spec">15.9mm to 19.0mm Diameter</div>
+                            <p>High-density crisp texture with uniform spherical size. Excellent balance of premium visual appeal and scalable volume pricing.</p>
+                            <ul class="grade-specs-list">
+                                <li><i class="fa-solid fa-check"></i> <strong>Moisture:</strong> Controlled &lt; 10%</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Best For:</strong> Retail Brand Packaging</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Expansion:</strong> Optimal Roasting Yield</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="process-row reveal">
-                        <span class="process-num">03</span>
-                        <div class="process-info">
-                            <h3>Traditional Suta &amp; Caliper Grading</h3>
-                            <p>Multi-deck sieving categorizing inventory precisely into 3 Suta Pearl (9–12.7mm), 4 Suta Classic (12.7–15.8mm), 5 Suta Royal (15.9–19.0mm), 6+ Suta Jumbo (19–26mm), and 7 Suta Super Jumbo (&gt;21mm).</p>
+                    <!-- Grade 3: 4 Suta Classic -->
+                    <div class="grade-card reveal">
+                        <div class="grade-img-box">
+                            <img src="4 suta.jpeg" alt="4 Suta Classic Makhana">
+                            <span class="grade-tag">4 SUTA</span>
+                        </div>
+                        <div class="grade-body">
+                            <h3>Classic Grade</h3>
+                            <div class="grade-size-spec">12.7mm to 15.8mm Diameter</div>
+                            <p>Reliable everyday commercial grade with crunch and rapid seasoning absorption. Ideal for trail mixes and culinary processing.</p>
+                            <ul class="grade-specs-list">
+                                <li><i class="fa-solid fa-check"></i> <strong>Moisture:</strong> Controlled &lt; 10%</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Best For:</strong> Trail Mixes &amp; Confectionery</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Efficiency:</strong> High Cost-Performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;" class="reveal">
+                    <a href="SizeCaliperGuide.html" class="btn-shimmer" style="display: inline-flex;">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                        <span>Explore Full Suta Caliper Guide</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST BADGES & CERTIFICATIONS BANNER -->
+        <section class="trust-banner-section">
+            <div class="site-container">
+                <div class="trust-badges-row reveal">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="trust-badge-text">
+                            <strong>GI Certified Origin</strong>
+                            <span>Mithila Makhana Heritage</span>
                         </div>
                     </div>
 
-                    <div class="process-row reveal">
-                        <span class="process-num">04</span>
-                        <div class="process-info">
-                            <h3>Vacuum Barrier Bulk Packaging</h3>
-                            <p>Sealed in heavy-duty HDPE / master cartons for domestic freight and international container export.</p>
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="trust-badge-text">
+                            <strong>100% Natural</strong>
+                            <span>Zero Artificial Additives</span>
+                        </div>
+                    </div>
+
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon">
+                            <i class="fa-solid fa-vial-circle-check"></i>
+                        </div>
+                        <div class="trust-badge-text">
+                            <strong>Lab-Tested Purity</strong>
+                            <span>Strict Moisture &amp; Caliper Control</span>
+                        </div>
+                    </div>
+
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <div class="trust-badge-text">
+                            <strong>APEDA Export Ready</strong>
+                            <span>Global B2B Wholesale Logistics</span>
                         </div>
                     </div>
                 </div>
@@ -295,28 +504,29 @@
         <section class="about-cta-section">
             <div class="cta-glow"></div>
             <div class="site-container cta-box reveal">
-                <span class="section-eyebrow text-gold">CONNECT WITH OUR DESK</span>
+                <span class="section-eyebrow text-gold">DIRECT WHOLESALE SUPPLY</span>
                 <h2 class="editorial-title text-cream">
                     Ready to scale your <span class="italic text-gold-bright">Makhana procurement?</span>
                 </h2>
                 <p class="cta-desc">
-                    Contact our Bihar processing hub or New Delhi export office for custom volume quotations, FOB/CIF contracts, and grade samples.
+                    Partner directly with our Bihar processing facility for container loads, grade samples, and dependable export supply.
                 </p>
 
                 <div class="cta-btn-group">
                     <a href="contactus.html#rfq" class="btn-shimmer">
-                        Request Bulk RFQ
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Request Bulk Quotation</span>
                     </a>
-                    <a href="sizecaliperguide.html" class="btn-outline">
-                        View Grading Standards
+                    <a href="https://wa.me/918340493639?text=Hello%20Makhanam%2C%20I%20am%20interested%20in%20bulk%20Makhana%20wholesale%20supply." class="btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Chat on WhatsApp</span>
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer matching Contact Page -->
+    <!-- Footer matching All Pages -->
     <footer class="site-footer">
         <div class="site-container">
             <div class="footer-grid">
@@ -329,10 +539,10 @@
                         <span class="footer-brand-name">Makhanam</span>
                     </div>
                     <p class="footer-desc">
-                        Makhanam, based in Bihar, is a dedicated specialist in premium raw Makhana (Foxnut) processing and a direct manufacturer for wholesalers, retailers, and export houses.
+                        Makhanam is a direct processor and exporter of premium raw Makhana (Foxnut), operating at the source in Bihar to serve global brands, distributors, and wholesalers.
                     </p>
                     <div class="footer-origin-tag">
-                        PREMIUM RAW MAKHANA • BIHAR
+                        PREMIUM RAW MAKHANA • BIHAR, INDIA
                     </div>
                 </div>
 
@@ -364,9 +574,9 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:export@makhanam.com">export@makhanam.com</a>
+                            <a href="mailto:KeshavKaushikExports@gmail.com">KeshavKaushikExports@gmail.com</a>
                         </li>
-                        <li >GSTIN: 10ELYPK4010H1Z9</li>
+                        <li>GSTIN: 10AZBPY2685B1ZL</li>
                     </ul>
                 </div>
             </div>
@@ -374,7 +584,7 @@
             <!-- Sub Footer -->
             <div class="footer-bottom-bar">
                 <div>&copy; 2026 Makhanam. All rights reserved.</div>
-                <div>Premium Raw Makhana Processing • Manufacturer for Wholesalers</div>
+                <div>Premium Raw Makhana Processing • Direct Manufacturer for Wholesalers</div>
             </div>
         </div>
     </footer>
@@ -384,13 +594,38 @@
         function toggleMobileNav(event) {
             const drawer = document.getElementById('mobileNavDrawer');
             if (!drawer) return;
-            drawer.classList.toggle('active');
-            if (drawer.classList.contains('active')) {
+            const isOpen = drawer.classList.contains('active') || drawer.classList.contains('open');
+            if (!isOpen) {
+                drawer.classList.add('active', 'open');
                 document.body.style.overflow = 'hidden';
             } else {
+                drawer.classList.remove('active', 'open');
                 document.body.style.overflow = '';
             }
         }
+
+        // Close drawer on link click and Escape key
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('#mobileNavDrawer a, .drawer-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const drawer = document.getElementById('mobileNavDrawer');
+                    if (drawer && (drawer.classList.contains('active') || drawer.classList.contains('open'))) {
+                        drawer.classList.remove('active', 'open');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const drawer = document.getElementById('mobileNavDrawer');
+                    if (drawer && (drawer.classList.contains('active') || drawer.classList.contains('open'))) {
+                        drawer.classList.remove('active', 'open');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
 
         // Header shadow on scroll
         window.addEventListener('scroll', () => {

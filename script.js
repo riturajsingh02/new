@@ -301,7 +301,7 @@ function openRFQWithFreight() {
   }
   openRFQModal();
 }
-function handleRFQSubmit(e) {
+async function handleRFQSubmit(e) {
   e.preventDefault();
   const company = $('rfq-company') ? $('rfq-company').value : '';
   const name = $('rfq-name') ? $('rfq-name').value : '';
@@ -309,6 +309,34 @@ function handleRFQSubmit(e) {
   const port = $('rfq-port') ? $('rfq-port').value : '';
   const grade = $('rfq-grade-select') && $('rfq-grade-select').selectedOptions ? $('rfq-grade-select').selectedOptions[0].text : '';
   const details = $('rfq-details') ? $('rfq-details').value : '';
+
+  const submitBtn = document.querySelector('#rfq-form button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending RFQ to Export Desk...';
+  }
+
+  // Send to backend endpoint which emails KeshavKaushikExports@gmail.com
+  try {
+    await fetch('/api/rfq', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        fullName: name,
+        companyName: company,
+        email: email,
+        port: port,
+        grade: grade,
+        message: details,
+        sourcePage: 'Size Caliper Guide RFQ Modal'
+      })
+    });
+  } catch (err) {
+    console.warn('Network submit notice:', err);
+  }
 
   const waText = encodeURIComponent(
     `*Makhanam B2B RFQ Inquiry*\n` +
@@ -320,17 +348,36 @@ function handleRFQSubmit(e) {
     (details ? `Details: ${details}\n` : '')
   );
 
+  const mailtoSubject = encodeURIComponent(`[Makhanam Export RFQ] ${company ? `${company} - ` : ''}${name || 'Enquiry'}`);
+  const mailtoBody = encodeURIComponent(
+    `Hello Makhanam Export Desk,\n\n` +
+    `I have requested an export quotation via the Suta Caliper Guide:\n\n` +
+    `Company: ${company}\n` +
+    `Contact: ${name}\n` +
+    `Email: ${email}\n` +
+    `Destination Port: ${port}\n` +
+    `Preferred Grade: ${grade}\n` +
+    (details ? `Details: ${details}\n` : '') +
+    `\nPlease provide FOB/CIF quotation and export specifications.`
+  );
+
   if ($('rfq-form')) {
     $('rfq-form').innerHTML = `
       <div class="rfq-ok" style="padding: 24px 16px; text-align: center;">
-        <i class="fa-solid fa-circle-check" style="font-size: 36px; color: #C9A961; display: block; margin-bottom: 12px;"></i>
-        <h4 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; color: #241C17; margin-bottom: 8px;">Quotation Request Received</h4>
-        <p style="font-size: 13px; color: #5C4232; margin-bottom: 20px; line-height: 1.6;">
-          Thank you, ${name || 'Sir/Madam'}. Your export enquiry for <strong>${company || 'your organization'}</strong> has been registered with our Bihar dispatch desk.
+        <i class="fa-solid fa-circle-check" style="font-size: 38px; color: #C9A961; display: block; margin-bottom: 12px;"></i>
+        <h4 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; color: #241C17; margin-bottom: 8px;">Quotation Request Dispatched</h4>
+        <p style="font-size: 13px; color: #5C4232; margin-bottom: 6px; line-height: 1.6;">
+          Thank you, <strong>${name || 'Sir/Madam'}</strong>. Your export inquiry for <strong>${company || 'your organization'}</strong> has been sent to <strong>KeshavKaushikExports@gmail.com</strong>.
         </p>
-        <a href="https://wa.me/918340493639?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 999px;">
-          <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> Send Copy to WhatsApp Export Desk
-        </a>
+        <p style="font-size: 11px; color: #7A5B47; margin-bottom: 20px;">Our dispatch team in Bihar will review and contact you with calibrated grade specifications.</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="https://wa.me/918340493639?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 700;">
+            <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> Send Copy to WhatsApp Export Desk
+          </a>
+          <a href="mailto:KeshavKaushikExports@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}" class="btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 10px 20px; border-radius: 999px; border: 1px solid #C9A961; color: #241C17; font-size: 12px; font-weight: 600;">
+            <i class="fa-solid fa-envelope"></i> Open Direct Email Client
+          </a>
+        </div>
       </div>
     `;
   }

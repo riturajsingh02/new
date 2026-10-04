@@ -244,69 +244,133 @@
         <div class="hidden lg:block text-brand-gold/70 text-[10px] whitespace-nowrap">Makhanam • BIHAR</div>
         <div class="mx-auto flex items-center gap-2 min-w-0">
             <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-pulse shrink-0"></span>
-            <span class="truncate sm:whitespace-normal">PREMIUM RAW MAKHANA PROCESSING • WHOLESALE SUPPLY</span>
+            <span class="truncate sm:whitespace-normal">Free Shipping Above 100 Kg • Wholesale Supply</span>
         </div>
         <div class="hidden md:flex items-center gap-2 text-brand-cream/80 text-[10px] font-mono whitespace-nowrap">
-            <span>GSTIN:</span><span class="text-brand-gold">10ELYPK4010H1Z9</span>
+            <span>GSTIN:</span><span class="text-brand-gold">10AZBPY2685B1ZL</span>
         </div>
     </div>
 
-    <!-- Main Navigation -->
-    <header class="sticky top-0 z-40 w-full transition-all duration-300 glass-dark text-brand-ivory">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
-            <button onclick="toggleMobileNav()" aria-label="Open Navigation Menu" class="lg:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none tap-target flex items-center justify-center">
-                <i class="fa-solid fa-bars-staggered text-lg sm:text-xl"></i>
-            </button>
+    <!-- Main Navigation Header -->
+    <header class="main-header sticky top-0 z-40 w-full transition-all duration-300 glass-dark text-brand-ivory" id="siteHeader">
+        <div class="header-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+            <!-- Left Side: Mobile Menu Button + Brand Logo -->
+            <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                <button onclick="toggleMobileNav()" aria-label="Open Navigation Menu" class="mobile-nav-btn lg:hidden p-2 text-brand-cream hover:text-brand-gold focus:outline-none flex items-center justify-center shrink-0" style="min-width: 44px; min-height: 44px;">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
 
-            <a href="#" class="flex items-center gap-2 sm:gap-3 group min-w-0">
-                <div class="w-9 h-9 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-dark group-hover:border-brand-gold transition-colors shrink-0">
-                    <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
-                </div>
-                <div class="flex flex-col min-w-0">
-                    <span class="font-serif text-xl sm:text-2xl lg:text-3xl tracking-[0.12em] sm:tracking-[0.16em] font-light text-brand-cream uppercase group-hover:text-brand-gold transition-colors">Makhanam</span>
-                    <span class="text-[8px] sm:text-[9px] tracking-[0.24em] text-brand-gold uppercase font-sans font-semibold -mt-1">Premium Raw Makhana</span>
-                </div>
-            </a>
+                <a href="index.html" class="brand-logo flex items-center gap-2 sm:gap-3 group min-w-0" aria-label="Makhanam Home">
+                    <div class="brand-badge w-9 h-9 rounded-full border border-brand-gold/45 flex items-center justify-center bg-brand-dark group-hover:border-brand-gold transition-colors shrink-0">
+                        <span class="text-brand-gold text-xs font-serif font-bold">GA</span>
+                    </div>
+                    <div class="brand-text flex flex-col min-w-0">
+                        <span class="brand-title font-serif text-xl sm:text-2xl lg:text-3xl tracking-[0.14em] font-light text-brand-cream uppercase group-hover:text-brand-gold transition-colors leading-none">Makhanam</span>
+                        <span class="brand-sub text-[8px] sm:text-[9px] tracking-[0.22em] text-brand-gold uppercase font-sans font-semibold mt-1">Premium Raw Makhana</span>
+                    </div>
+                </a>
+            </div>
 
-            <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.16em] font-medium text-brand-cream/90">
-                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-                <a href="ourstory.html" class="hover:text-brand-gold transition-colors">Our Story</a>
-                <a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a>
-                <a href="index.html#services" class="hover:text-brand-gold transition-colors">Our Services</a>
-                <a href="SizeCaliperGuide.html" class="hover:text-brand-gold transition-colors">Grading</a>
-                <a href="contactus.html" class="hover:text-brand-gold transition-colors">Contact</a>
+            <!-- Desktop Nav Links -->
+            <nav class="desktop-nav hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.16em] font-medium text-brand-cream/90">
+                <a href="index.html" class="nav-item hover:text-brand-gold transition-colors">Home</a>
+                <a href="ourstory.html" class="nav-item hover:text-brand-gold transition-colors">Our Story</a>
+                <a href="about.html" class="nav-item hover:text-brand-gold transition-colors">About Us</a>
+                <a href="index.html#services" class="nav-item hover:text-brand-gold transition-colors">Our Services</a>
+                <a href="index.html#partner" class="nav-item hover:text-brand-gold transition-colors">Why Partner</a>
+                <a href="SizeCaliperGuide.html" class="nav-item hover:text-brand-gold transition-colors">Grading</a>
+                <a href="contactus.html" class="nav-item hover:text-brand-gold transition-colors">Contact</a>
             </nav>
 
-            <a href="tel:+918292176088" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold/30 text-brand-gold text-[10px] uppercase tracking-widest hover:border-brand-gold hover:bg-brand-gold/10 transition-all">
-                <i class="fa-solid fa-phone"></i><span>Contact Us</span>
-            </a>
+            <!-- Right CTA (Call icon on mobile, full pill on desktop) -->
+            <div class="flex items-center gap-2">
+                <a href="tel:+918292176088" class="lg:hidden p-2 text-brand-gold hover:text-brand-gold-bright flex items-center justify-center shrink-0" aria-label="Call Makhanam" style="min-width: 44px; min-height: 44px;">
+                    <i class="fa-solid fa-phone text-base"></i>
+                </a>
+                <a href="tel:+918292176088" class="header-cta-btn hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold/35 text-brand-gold text-[10.5px] uppercase tracking-widest hover:border-brand-gold hover:bg-brand-gold/10 transition-all font-semibold">
+                    <i class="fa-solid fa-phone"></i><span>Contact Us</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
-        <div class="absolute inset-0 bg-brand-dark/85 backdrop-blur-md" onclick="toggleMobileNav()"></div>
-        <div id="mobile-menu-content" class="absolute top-0 left-0 bottom-0 w-[86%] max-w-sm bg-brand-dark text-brand-cream border-r border-brand-gold/20 p-6 sm:p-8 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-out drawer-slide pointer-events-auto">
+    <!-- Unified Mobile Navigation Drawer (Slides from LEFT) -->
+    <div id="mobile-nav-drawer" class="mobile-nav-backdrop fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0" aria-hidden="true">
+        <!-- Backdrop Blur Overlay -->
+        <div class="absolute inset-0 bg-[#0F0A07]/80 backdrop-blur-md" onclick="toggleMobileNav()"></div>
+
+        <!-- Left Slide Drawer Content -->
+        <div id="mobile-menu-content" class="mobile-nav-panel absolute top-0 left-0 bottom-0 w-[86%] max-w-[340px] bg-[#241C17] text-[#F5ECDC] border-r border-[#C9A961]/25 p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-out pointer-events-auto shadow-2xl overflow-y-auto">
             <div>
-                <div class="flex items-center justify-between mb-8 pb-4 border-b border-brand-gold/20">
-                    <span class="font-serif text-2xl tracking-widest text-brand-cream">Makhanam</span>
-                    <button onclick="toggleMobileNav()" class="text-brand-gold text-xl p-2 tap-target"><i class="fa-solid fa-xmark"></i></button>
+                <!-- Drawer Top Header -->
+                <div class="flex items-center justify-between pb-5 mb-6 border-b border-[#C9A961]/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full border border-[#C9A961]/45 flex items-center justify-center bg-[#17110D] shrink-0">
+                            <span class="text-[#C9A961] text-[11px] font-serif font-bold">GA</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif text-xl tracking-[0.14em] text-[#FCF9F2] uppercase leading-tight">Makhanam</span>
+                            <span class="text-[8px] tracking-[0.22em] text-[#C9A961] uppercase font-semibold">Premium Raw Makhana</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleMobileNav()" class="p-2 text-[#C9A961] hover:text-[#E8CD84] focus:outline-none transition-colors flex items-center justify-center" aria-label="Close Navigation Menu" style="min-width: 44px; min-height: 44px;">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
                 </div>
-                <nav class="flex flex-col space-y-5 text-sm uppercase tracking-[0.16em] font-medium">
-                    <a href="index.html" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Home</a>
-                    <a href="ourstory.html" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Our Story</a>
-                    <a href="about.html" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">About Us</a>
-                    <a href="index.html#services" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Our Services</a>
-                    <a href="SizeCaliperGuide.html" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Premium Grading</a>
-                    <a href="contactus.html" onclick="toggleMobileNav()" class="hover:text-brand-gold transition-colors">Contact Us</a>
+
+                <!-- Navigation Links -->
+                <nav class="flex flex-col space-y-4 text-xs uppercase tracking-[0.18em] font-medium" id="mobileNavLinks">
+                    <a href="index.html" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>Home</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
+                    <a href="ourstory.html" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>Our Story</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
+                    <a href="about.html" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>About Us</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
+                    <a href="index.html#services" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>Our Services</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
+                    <a href="index.html#partner" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>Why Partner</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
+                    <a href="SizeCaliperGuide.html" class="flex items-center justify-between py-2 text-[#E8CD84] font-semibold border-l-2 border-[#C9A961] pl-3 -ml-3">
+                        <span>Suta Grading</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] text-[#C9A961]"></i>
+                    </a>
+                    <a href="contactus.html" class="flex items-center justify-between py-2 text-[#F5ECDC]/90 hover:text-[#E8CD84] transition-colors">
+                        <span>Contact Us</span>
+                        <i class="fa-solid fa-chevron-right text-[9px] opacity-40"></i>
+                    </a>
                 </nav>
             </div>
-            <div class="pt-6 border-t border-brand-gold/20 space-y-3">
-                <p class="text-[10px] font-mono uppercase tracking-widest text-brand-gold">GSTIN</p>
-                <p class="text-sm text-brand-cream/80">10ELYPK4010H1Z9</p>
-                <a data-whatsapp href="#" class="inline-flex items-center gap-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
-                     <i class="fa-brands fa-whatsapp"></i><span>WhatsApp Bulk Enquiry</span>
-                 </a>
+
+            <!-- Drawer Bottom Actions & Compliance -->
+            <div class="pt-6 mt-6 border-t border-[#C9A961]/20 space-y-4">
+                <div>
+                    <div class="flex items-center justify-between text-[10px] uppercase tracking-widest text-[#C9A961] font-semibold mb-1">
+                        <span>GSTIN</span>
+                        <span>Mithila, Bihar</span>
+                    </div>
+                    <div class="font-mono text-xs text-[#F5ECDC] font-bold">10AZBPY2685B1ZL</div>
+                </div>
+
+                <div class="flex flex-col gap-2 pt-1">
+                    <a href="https://wa.me/918340493639?text=Hello%20Makhanam%2C%20I%20am%20interested%20in%20bulk%20Makhana%20wholesale%20supply." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#25D366] text-[#0A3018] font-bold text-xs uppercase tracking-wider transition-transform active:scale-[0.98] shadow-md">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>WhatsApp Bulk Enquiry</span>
+                    </a>
+                    <a href="tel:+918292176088" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-[#C9A961]/40 text-[#C9A961] hover:bg-[#C9A961]/10 font-semibold text-xs uppercase tracking-wider transition-colors">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                        <span>Call +91 82921 76088</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -424,7 +488,7 @@
                         </div>
 
                         <div class="font-mono text-xs sm:text-sm text-black">
-                            10ELYPK4010H1Z9
+                            10AZBPY2685B1ZL
                         </div>
                     </div>
 
@@ -576,10 +640,7 @@
                     id="journey-desc"
                     class="text-brand-cream/80 text-sm sm:text-base
                            leading-relaxed font-light">
-                    Makhana begins its journey in the water bodies of Bihar.
-                    Traditional cultivation takes place in ponds and wetlands
-                    where the crop grows in standing water, rooted in rich
-                    aquatic soil.
+                    The journey begins in the water bodies of Bihar. Traditional Makhana is cultivated in ponds and wetlands where the crop grows in standing water, rooted in the aquatic environment.
                 </p>
 
 
@@ -598,15 +659,14 @@
                             id="journey-quote"
                             class="text-xs sm:text-sm font-serif italic
                                    text-brand-cream/90 block">
-                            “Makhana is an aquatic crop, naturally suited to
-                            the ponds and wetlands of Bihar.”
+                            “Before the first seed is sown, the water must be ready to receive it.”
                         </span>
 
                         <span
                             id="journey-source"
                             class="text-[10px] font-mono text-brand-gold
                                    uppercase mt-1 block">
-                            — ICAR Makhana Research Centre
+                            — Traditional Makhana Cultivation
                         </span>
 
                     </div>
@@ -625,7 +685,7 @@
 
                     <img
                         id="journey-img"
-                        src="https://i.pinimg.com/1200x/12/a6/e9/12a6e955ec206e79e89fe087d5c56cbf.jpg"
+                        src="./wetland.jpeg"
                         alt="Makhana cultivation in Bihar"
                         class="w-full h-full object-cover
                                transition-all duration-500">
@@ -708,7 +768,7 @@
                         </div>
                         <h3 class="font-serif text-2xl text-brand-dark">Our Products</h3>
                         <p class="text-sm text-brand-charcoal/75 leading-relaxed mt-3">
-                            We accommodate all wholesale needs, offering reliable bulk supply in large-capacity gunny bags and custom, smaller packaging options tailored precisely to retail or distribution requirements.
+                            We accommodate all wholesale needs, offering reliable bulk supply in large-capacity gunny bags and standard packaging options tailored precisely to retail or distribution requirements.
                         </p>
                     </div>
 
@@ -788,7 +848,7 @@
                             <i class="fa-solid fa-phone text-brand-gold mt-1"></i>
                             <div>
                                 <div class="text-[10px] uppercase tracking-widest text-brand-gold">Phone</div>
-                                <a href="tel:+918292176088" class="text-sm text-brand-cream/75 hover:text-brand-gold">+91 8340493639</a>
+                                <a href="tel:+918340493639" class="text-sm text-brand-cream/75 hover:text-brand-gold">+91 83404 93639</a>
                                  <a data-whatsapp href="#" class="inline-flex items-center gap-2 mt-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
                                      <i class="fa-brands fa-whatsapp"></i>
                                      <span>WhatsApp for Bulk Enquiry</span>
@@ -804,9 +864,9 @@
                         </div>
                         <div class="pt-3 border-t border-brand-gold/15">
                             <div class="text-[10px] uppercase tracking-widest text-brand-gold mb-1">GSTIN</div>
-                            <div class="font-mono text-sm">10ELYPK4010H1Z9</div>
+                            <div class="font-mono text-sm">10AZBPY2685B1ZL</div>
                         </div>
-                        <a href="mailto:greenfieldagro2024@gmail.com?subject=Wholesale%20Makhana%20Enquiry" class="block w-full py-3.5 rounded-full btn-shimmer text-brand-dark text-xs uppercase tracking-[0.2em] font-bold text-center">
+                        <a href="mailto:KeshavKaushikExports@gmail.com?subject=Wholesale%20Makhana%20Enquiry" class="block w-full py-3.5 rounded-full btn-shimmer text-brand-dark text-xs uppercase tracking-[0.2em] font-bold text-center">
                             Send Wholesale Enquiry
                         </a>
                     </div>
@@ -848,10 +908,10 @@
                     <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Contact</h4>
                     <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
                         <li> Bihar</li>
-                        <li><a href="tel:+918292176088" class="hover:text-brand-gold">+91 8340493639</a></li>
+                        <li><a href="tel:+918340493639" class="hover:text-brand-gold">+91 83404 93639</a></li>
                          <li><a data-whatsapp href="#" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
-                        <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"></a></li>
-                        <li>GSTIN: </li>
+                        <li><a href="mailto:KeshavKaushikExports@gmail.com" class="hover:text-brand-gold break-all"><i class="fa-solid fa-envelope text-brand-gold mr-1.5"></i> KeshavKaushikExports@gmail.com</a></li>
+                        <li>GSTIN: 10AZBPY2685B1ZL</li>
                     </ul>
                 </div>
             </div>
@@ -981,7 +1041,7 @@ const JOURNEY_DATA = {
         quote: 'Before the first seed is sown, the water must be ready to receive it.',
         source: '— Traditional Makhana Cultivation',
         badge: 'BIHAR WETLANDS',
-        img: './mukka_cultivation.jpg'
+        img: 'wetland.jpeg'
     },
 
     2: {
@@ -991,7 +1051,7 @@ const JOURNEY_DATA = {
         quote: 'Every harvest begins with something small, placed carefully beneath the water.',
         source: '— Makhana Cultivation',
         badge: 'SEED SOWING',
-        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+        img: 'sowing.jpeg'
     },
 
     3: {
@@ -1001,7 +1061,7 @@ const JOURNEY_DATA = {
         quote: 'Much of the journey happens where the eye cannot see.',
         source: '— Makhana Growth Cycle',
         badge: 'EARLY GROWTH',
-        img: 'https://i.pinimg.com/1200x/7a/9f/72/7a9f720a9cd2df6afd5413adde82a96f.jpg'
+        img: 'growth.jpeg'
     },
 
     4: {
@@ -1010,8 +1070,8 @@ const JOURNEY_DATA = {
         desc: 'As the plants mature, large floating leaves spread across the water. In field-based cultivation, young seedlings are transplanted and carefully managed until the growing Makhana plants create a dense green canopy.',
         quote: 'Slowly, one leaf becomes many — until the water turns into a living green landscape.',
         source: '— Makhana Field Cultivation',
-        badge: 'MAKHANA FIELD',
-        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+        badge: 'FIELD TRANSPLANT',
+        img: 'transplant.jpeg'
     },
 
     5: {
@@ -1021,7 +1081,7 @@ const JOURNEY_DATA = {
         quote: 'A beautiful flower above the water hides the beginning of the harvest below.',
         source: '— Makhana Flower & Fruit',
         badge: 'FLOWER & FRUIT',
-        img: 'https://i.pinimg.com/1200x/64/cf/d9/64cfd9fa2b3184edf12c6234d8551afa.jpg'
+        img: 'flower.jpeg'
     },
 
     6: {
@@ -1031,7 +1091,7 @@ const JOURNEY_DATA = {
         quote: 'The harvest is hidden beneath the water — and human hands bring it back to the surface.',
         source: '— Traditional Makhana Harvesting',
         badge: 'UNDERWATER HARVEST',
-        img: 'https://i.pinimg.com/736x/7b/21/c2/7b21c2d7b5e2460c1fbac1e44b040ab2.jpg'
+        img: 'harvest.jpeg'
     },
 
     7: {
@@ -1041,7 +1101,7 @@ const JOURNEY_DATA = {
         quote: 'From a dark seed gathered beneath the water comes the delicate white Makhana we know.',
         source: '— Traditional Makhana Processing',
         badge: 'PHOOL MAKHANA',
-        img: 'https://i.pinimg.com/736x/dc/08/31/dc08311ae07bce53314fb5c9712f1cae.jpg'
+        img: 'popping.jpeg'
     }
 
 };
