@@ -72,9 +72,9 @@
     --brand-terracotta:#C37A58;  /* brighter terracotta — distinct accent */
 
     /* ---- Gold Trio (deep / base / bright) ---- */
-    --brand-gold-deep: #000000;  /* deep gold — subtle accents, hover states */
+    --brand-gold-deep: #A68740;  /* deep gold — subtle accents, hover states */
     --brand-gold:      #C9A961;  /* antique gold — primary accent (brighter) */
-    --brand-gold-bright:#000000; /* bright gold — highlights, shimmer mid-point */
+    --brand-gold-bright:#E8CD84; /* bright gold — highlights, shimmer mid-point */
 
     /* ---- Light Surfaces (warm, clean) ---- */
     --brand-cream:     #F3E9D5;  /* warm makhana cream — section backgrounds */
@@ -366,88 +366,104 @@
         </div>
     </section>
 
-   <section id="about"
-    class="relative min-h-[700px] sm:min-h-[750px] lg:min-h-[850px] overflow-hidden text-brand-dark">
+   <section id="about" class="py-20 sm:py-24 lg:py-32 bg-brand-ivory text-brand-dark relative overflow-hidden border-y border-brand-earth/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- LEFT CONTENT COLUMN -->
+                <div class="lg:col-span-6 space-y-6 reveal">
+                    <div class="inline-flex items-center gap-3 text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.25em] font-semibold">
+                        <span class="w-10 h-px bg-brand-terracotta"></span>
+                        <span>Mithila Heritage • Origin Sourced</span>
+                    </div>
 
-    <!-- FULL BACKGROUND IMAGE -->
-    <div class="absolute inset-0">
-        <img
-            src="Untitled design.png"
-            alt="Premium Makhana processing"
-            class="w-full h-full object-cover"
-        />
-    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.08] text-brand-dark">
+                        Rooted at the Origin of <br>
+                        <span class="italic text-brand-terracotta font-normal">True Foxnut Heritage</span>
+                    </h2>
 
-    <!-- CONTENT -->
-    <div class="relative z-10 min-h-[700px] sm:min-h-[750px] lg:min-h-[850px] flex items-center">
-
-        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
-
-            <div class="max-w-3xl reveal">
-
-                <!-- LABEL -->
-                <div class="inline-flex items-center gap-3 text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.25em] font-semibold mb-6">
-
-                    <span class="w-10 h-px bg-brand-terracotta"></span>
-
-                    <span>About Us</span>
-
-                </div>
-
-                <!-- HEADING -->
-                <h2 class="font-serif text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-light leading-[1.05] text-black">
-
-                    A Dedicated Specialist in
-
-                    <span class="italic text-brand-earth">
-                        Premium Raw Makhana
-                    </span>
-
-                </h2>
-
-                <!-- DESCRIPTION -->
-                <div class="mt-7 sm:mt-8 space-y-5 max-w-2xl">
-
-                    <p class="text-black text-sm sm:text-base lg:text-lg leading-relaxed font-light">
-                        Makhanam, based in Bihar, is a dedicated specialist in premium raw Makhana (Foxnut) processing. We combine farming expertise with modern technology. Our work is focused entirely on this segment.
+                    <p class="text-brand-charcoal/85 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
+                        Over 85% of the world’s Makhana originates in the sacred wetlands of northern Bihar. Makhanam operates at the direct source in Mithila, bridging ancestral hand-harvesting wisdom with precision electronic calibration and moisture-controlled packaging for global commerce.
                     </p>
 
-                 
-
-                </div>
-
-                <!-- INFORMATION -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 mt-10 pt-6 border-t border-black/20 max-w-2xl">
-
-                    <div>
-                        <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-2">
-                            Location
+                    <!-- Key Proof Points -->
+                    <div class="space-y-3.5 pt-2">
+                        <div class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-brand-gold/20 text-brand-terracotta flex items-center justify-center text-xs mt-0.5 shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="text-xs sm:text-sm text-brand-charcoal/80 font-medium">
+                                <strong>Single-Origin Bihar Terroir:</strong> Natural sub-tropical wetlands yielding high natural puff volume.
+                            </span>
                         </div>
-
-                        <div class="font-serif text-xl sm:text-2xl text-black">
-                          Bihar
+                        <div class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-brand-gold/20 text-brand-terracotta flex items-center justify-center text-xs mt-0.5 shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="text-xs sm:text-sm text-brand-charcoal/80 font-medium">
+                                <strong>Direct Farmgate Transparency:</strong> Direct partnerships with Mallah harvesting families.
+                            </span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-brand-gold/20 text-brand-terracotta flex items-center justify-center text-xs mt-0.5 shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span class="text-xs sm:text-sm text-brand-charcoal/80 font-medium">
+                                <strong>Standardized Suta Calipers:</strong> Scientific millimeter sorting from 3 Suta Pearl to 7 Suta Super Jumbo.
+                            </span>
                         </div>
                     </div>
 
-                    <div>
-                        <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-2">
-                            GSTIN
+                    <!-- Location & GSTIN -->
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-brand-earth/15">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-1">Processing Hub</div>
+                            <div class="font-serif text-xl sm:text-2xl text-brand-dark">Bihar, India</div>
                         </div>
-
-                        <div class="font-mono text-xs sm:text-sm text-black">
-                            10ELYPK4010H1Z9
+                        <div>
+                            <div class="text-[10px] uppercase tracking-[0.2em] text-brand-terracotta font-semibold mb-1">GSTIN Registered</div>
+                            <div class="font-mono text-xs sm:text-sm font-semibold text-brand-dark">10ELYPK4010H1Z9</div>
                         </div>
                     </div>
 
+                    <!-- Callout link to Our Story -->
+                    <div class="pt-2">
+                        <a href="ourstory.html" class="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-brand-dark hover:text-brand-terracotta transition-colors border-b-2 border-brand-gold pb-1.5 group">
+                            <span>Read The Full Mithila Story</span>
+                            <i class="fa-solid fa-arrow-right-long text-brand-gold group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
                 </div>
 
+                <!-- RIGHT IMAGE COMPOSITION -->
+                <div class="lg:col-span-6 relative reveal">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-brand-earth/20 bg-brand-cream aspect-[4/3] sm:aspect-[16/11]">
+                        <img src="story.jpeg" alt="Makhana wetland farming in Bihar" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-brand-cream">
+                            <div>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-brand-gold block">Protected Origin</span>
+                                <strong class="font-serif text-xl sm:text-2xl text-brand-ivory font-light">Mithila Makhana Wetlands</strong>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-brand-dark/90 border border-brand-gold/40 text-[9px] font-mono text-brand-gold uppercase tracking-wider">
+                                85%+ Global Share
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Floating mini badge -->
+                    <div class="hidden sm:flex absolute -bottom-5 -left-5 bg-brand-dark text-brand-cream border border-brand-gold/30 rounded-2xl p-4 shadow-xl items-center gap-3 max-w-xs">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-shield-halved text-base"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-mono uppercase tracking-wider text-brand-gold">FSSAI Certified</div>
+                            <div class="text-xs text-brand-cream/80 font-light">Laboratory-grade moisture &amp; purity compliance</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-    </div>
-
-</section>
+    </section>
 
     <!-- OUR SERVICES -->
  <!-- ============================================
@@ -624,6 +640,17 @@
 
                 </div>
 
+                <!-- PREV / NEXT JOURNEY CONTROLS -->
+                <div class="flex items-center justify-between pt-2 border-t border-brand-gold/15">
+                    <button onclick="prevJourneyStep()" class="inline-flex items-center gap-2 text-[11px] font-mono text-brand-gold hover:text-brand-goldBright transition-colors uppercase tracking-wider py-1.5 px-3 rounded-lg bg-brand-gold/10 hover:bg-brand-gold/20">
+                        <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                    </button>
+                    <span class="text-[11px] font-mono text-brand-cream/60" id="journey-counter">Stage 1 of 7</span>
+                    <button onclick="nextJourneyStep()" class="inline-flex items-center gap-2 text-[11px] font-mono text-brand-gold hover:text-brand-goldBright transition-colors uppercase tracking-wider py-1.5 px-3 rounded-lg bg-brand-gold/10 hover:bg-brand-gold/20">
+                        <span>Next Stage</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
             </div>
 
 
@@ -798,10 +825,10 @@
                         <div class="flex items-start gap-4">
                             <i class="fa-solid fa-phone text-brand-gold mt-1"></i>
                             <div>
-                                <div class="text-[10px] uppercase tracking-widest text-brand-gold">Phone</div>
-                                <a href="tel:+918292176088" class="text-sm text-brand-cream/75 hover:text-brand-gold">+91 8340493639</a>
-                                 <a data-whatsapp href="#" class="inline-flex items-center gap-2 mt-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
-                                     <i class="fa-brands fa-whatsapp"></i>
+                                <div class="text-[10px] uppercase tracking-widest text-brand-gold">Phone &amp; Direct Desk</div>
+                                <a href="tel:+918340493639" class="text-sm text-brand-cream/90 hover:text-brand-gold">+91 83404 93639</a>
+                                 <a href="https://wa.me/918340493639" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-2 text-xs text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry">
+                                     <i class="fa-brands fa-whatsapp text-sm"></i>
                                      <span>WhatsApp for Bulk Enquiry</span>
                                  </a>
                             </div>
@@ -810,14 +837,14 @@
                             <i class="fa-solid fa-envelope text-brand-gold mt-1"></i>
                             <div class="min-w-0">
                                 <div class="text-[10px] uppercase tracking-widest text-brand-gold">Email</div>
-                                <a href="mailto:" class="text-sm text-brand-cream/75 hover:text-brand-gold break-all"></a>
+                                <a href="mailto:export@makhanam.com" class="text-sm text-brand-cream/90 hover:text-brand-gold break-all">export@makhanam.com</a>
                             </div>
                         </div>
                         <div class="pt-3 border-t border-brand-gold/15">
                             <div class="text-[10px] uppercase tracking-widest text-brand-gold mb-1">GSTIN</div>
                             <div class="font-mono text-sm">10ELYPK4010H1Z9</div>
                         </div>
-                        <a href="mailto:greenfieldagro2024@gmail.com?subject=Wholesale%20Makhana%20Enquiry" class="block w-full py-3.5 rounded-full btn-shimmer text-brand-dark text-xs uppercase tracking-[0.2em] font-bold text-center">
+                        <a href="mailto:export@makhanam.com?subject=Wholesale%20Makhana%20Enquiry" class="block w-full py-3.5 rounded-full btn-shimmer text-brand-dark text-xs uppercase tracking-[0.2em] font-bold text-center">
                             Send Wholesale Enquiry
                         </a>
                     </div>
@@ -848,23 +875,24 @@
                 <div class="space-y-3">
                     <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Explore</h4>
                     <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
                         <li><a href="ourstory.html" class="hover:text-brand-gold transition-colors">Our Story</a></li>
                         <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
                         <li><a href="#services" class="hover:text-brand-gold transition-colors">Our Services</a></li>
                         <li><a href="#partner" class="hover:text-brand-gold transition-colors">Why Partner</a></li>
                         <li><a href="SizeCaliperGuide.html" class="hover:text-brand-gold transition-colors">Grading Specifications</a></li>
+                        <li><a href="contactus.html" class="hover:text-brand-gold transition-colors">Wholesale Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="space-y-3">
                     <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Contact</h4>
                     <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
-                        <li> Bihar</li>
-                        <li><a href="tel:+918292176088" class="hover:text-brand-gold">+91 8340493639</a></li>
-                         <li><a data-whatsapp href="#" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
-                        <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"></a></li>
-                        <!-- <li>GSTIN: </li> -->
-                        <span>GSTIN:</span><span >10ELYPK4010H1Z9</span>
+                        <li><i class="fa-solid fa-location-dot text-brand-gold mr-1.5"></i> Mithila, Bihar, India</li>
+                        <li><a href="tel:+918340493639" class="hover:text-brand-gold"><i class="fa-solid fa-phone text-brand-gold mr-1.5"></i> +91 83404 93639</a></li>
+                        <li><a href="https://wa.me/918340493639" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
+                        <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"><i class="fa-solid fa-envelope text-brand-gold mr-1.5"></i> greenfieldagro2024@gmail.com</a></li>
+                        <li class="pt-1"><span class="text-brand-gold/80 font-mono text-[11px]">GSTIN: </span><span class="font-mono text-brand-cream font-semibold">10ELYPK4010H1Z9</span></li>
                     </ul>
                 </div>
             </div>
@@ -898,7 +926,7 @@ const SERVICES_DATA = {
         desc: 'Employing specialized optical machinery for automated colour sorting of popped Makhana (Lawa), removing discolored or inferior kernels.',
         highlight: 'Automated colour sorting of popped Makhana (Lawa), removing discolored or inferior kernels.',
         badge: 'ADVANCED SORTING',
-        img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=1000'
+        img: 'WhatsApp Image 2026-09-24 at 8.30.26 AM.jpeg'
     },
 
     2: {
@@ -907,7 +935,7 @@ const SERVICES_DATA = {
         desc: 'Utilizing skilled local labor for the delicate process of handpicking raw Makhana seeds from the pond bed, ensuring minimal damage and high initial purity.',
         highlight: 'Skilled local labor supports minimal damage and high initial purity during handpicking.',
         badge: 'TRADITIONAL HANDPICKING',
-        img: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1000'
+        img: 'DSC00637.JPG'
     },
 
     3: {
@@ -916,7 +944,7 @@ const SERVICES_DATA = {
         desc: 'Implementing rigorous grading based on size, density, and puff quality, separating the kernels into premium, standardized categories.',
         highlight: 'Rigorous grading based on size, density, and puff quality into premium, standardized categories.',
         badge: 'PRECISION GRADING',
-        img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=1000'
+        img: 'WhatsApp Image 2026-09-24 at 8.30.27 AM.jpeg'
     }
 
 };
@@ -994,7 +1022,7 @@ const JOURNEY_DATA = {
         quote: 'Before the first seed is sown, the water must be ready to receive it.',
         source: '— Traditional Makhana Cultivation',
         badge: 'BIHAR WETLANDS',
-        img: './mukka_cultivation.jpg'
+        img: 'mukka_cultivation.jpg'
     },
 
     2: {
@@ -1004,7 +1032,7 @@ const JOURNEY_DATA = {
         quote: 'Every harvest begins with something small, placed carefully beneath the water.',
         source: '— Makhana Cultivation',
         badge: 'SEED SOWING',
-        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+        img: 'DSC00637.JPG'
     },
 
     3: {
@@ -1014,7 +1042,7 @@ const JOURNEY_DATA = {
         quote: 'Much of the journey happens where the eye cannot see.',
         source: '— Makhana Growth Cycle',
         badge: 'EARLY GROWTH',
-        img: 'https://i.pinimg.com/1200x/7a/9f/72/7a9f720a9cd2df6afd5413adde82a96f.jpg'
+        img: 'main.jpeg'
     },
 
     4: {
@@ -1024,7 +1052,7 @@ const JOURNEY_DATA = {
         quote: 'Slowly, one leaf becomes many — until the water turns into a living green landscape.',
         source: '— Makhana Field Cultivation',
         badge: 'MAKHANA FIELD',
-        img: 'https://i.pinimg.com/1200x/41/e3/5e/41e35eb2db7f261d7b8e93e3d48db4e3.jpg'
+        img: 'mukka_cultivation.jpg'
     },
 
     5: {
@@ -1034,7 +1062,7 @@ const JOURNEY_DATA = {
         quote: 'A beautiful flower above the water hides the beginning of the harvest below.',
         source: '— Makhana Flower & Fruit',
         badge: 'FLOWER & FRUIT',
-        img: 'https://i.pinimg.com/1200x/64/cf/d9/64cfd9fa2b3184edf12c6234d8551afa.jpg'
+        img: 'DSC00637.JPG'
     },
 
     6: {
@@ -1044,7 +1072,7 @@ const JOURNEY_DATA = {
         quote: 'The harvest is hidden beneath the water — and human hands bring it back to the surface.',
         source: '— Traditional Makhana Harvesting',
         badge: 'UNDERWATER HARVEST',
-        img: 'https://i.pinimg.com/736x/7b/21/c2/7b21c2d7b5e2460c1fbac1e44b040ab2.jpg'
+        img: 'WhatsApp Image 2026-09-24 at 8.30.26 AM.jpeg'
     },
 
     7: {
@@ -1054,7 +1082,7 @@ const JOURNEY_DATA = {
         quote: 'From a dark seed gathered beneath the water comes the delicate white Makhana we know.',
         source: '— Traditional Makhana Processing',
         badge: 'PHOOL MAKHANA',
-        img: 'https://i.pinimg.com/736x/dc/08/31/dc08311ae07bce53314fb5c9712f1cae.jpg'
+        img: '6+.jpeg'
     }
 
 };
@@ -1436,6 +1464,24 @@ function setJourneyStep(stepNum) {
 
     }
 
+    const counter = document.getElementById('journey-counter');
+    if (counter) {
+        counter.textContent = `Stage ${stepNum} of 7`;
+    }
+    window.currentJourneyStepNum = stepNum;
+
+}
+
+function nextJourneyStep() {
+    let next = (window.currentJourneyStepNum || 1) + 1;
+    if (next > 7) next = 1;
+    setJourneyStep(next);
+}
+
+function prevJourneyStep() {
+    let prev = (window.currentJourneyStepNum || 1) - 1;
+    if (prev < 1) prev = 7;
+    setJourneyStep(prev);
 }
 
 

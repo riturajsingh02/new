@@ -90,19 +90,19 @@
                     </button>
                 </div>
                 <nav class="drawer-links">
-                    <a href="index.html">Home</a>
-                    <a href="ourstory.html" class="active">Our Story</a>
-                    <a href="about.html">About Us</a>
-                    <a href="index.html#services">Our Services</a>
-                    <a href="SizeCaliperGuide.html">Premium Grading</a>
-                    <a href="contactus.html">Contact Us</a>
+                    <a href="index.html" onclick="toggleNav()">Home</a>
+                    <a href="ourstory.html" class="active" onclick="toggleNav()">Our Story</a>
+                    <a href="about.html" onclick="toggleNav()">About Us</a>
+                    <a href="index.html#services" onclick="toggleNav()">Our Services</a>
+                    <a href="SizeCaliperGuide.html" onclick="toggleNav()">Premium Grading</a>
+                    <a href="contactus.html" onclick="toggleNav()">Contact Us</a>
                 </nav>
             </div>
 
             <div class="drawer-bottom">
                 <p class="gstin-label">GSTIN</p>
                 <p class="gstin-value">10ELYPK4010H1Z9</p>
-                <a href="https://wa.me/918340493639" class="drawer-whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/918340493639?text=Hello%20Makhanam%2C%20I%20am%20interested%20in%20bulk%20Makhana%20wholesale%20supply." class="drawer-whatsapp-btn" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>WhatsApp Bulk Enquiry</span>
                 </a>
@@ -157,7 +157,7 @@
         <!-- CHAPTER 1: SACRED WATERS & GEOGRAPHICAL INDICATION -->
         <section class="chapter-section">
             <div class="site-container">
-                <div class="chapter-grid">
+                <div class="chapter-grid story-reveal">
                     <div class="chapter-copy">
                         <span class="chapter-num">Chapter 01</span>
                         <h2 class="chapter-title">
@@ -199,7 +199,7 @@
         <!-- CHAPTER 2: THE DAWN HARVEST & ANCESTRAL DIVE -->
         <section class="chapter-section alt-bg">
             <div class="site-container">
-                <div class="chapter-grid reverse">
+                <div class="chapter-grid reverse story-reveal">
                     <div class="visual-pane">
                         <img src="DSC00637.JPG" alt="Freshly harvested Makhana seeds and nuts" loading="lazy">
                         <div class="visual-caption">
@@ -240,7 +240,7 @@
         <!-- CHAPTER 3: THE 6-STEP TRANSFORMATION (PHOTO TIMELINE) -->
         <section class="timeline-section">
             <div class="site-container">
-                <div class="timeline-header">
+                <div class="timeline-header story-reveal">
                     <span class="chapter-num" style="color: var(--gold-bright);">Chapter 03</span>
                     <h2>From Raw Seed to Royal Puff</h2>
                     <p style="color: rgba(245, 236, 220, 0.75); font-size: 1.05rem; font-weight: 300;">
@@ -248,7 +248,7 @@
                     </p>
                 </div>
 
-                <div class="timeline-grid">
+                <div class="timeline-grid story-reveal">
                     <!-- Step 1 -->
                     <div class="step-card">
                         <div>
@@ -343,8 +343,8 @@
                     </p>
                 </div>
 
-                <div class="suta-feature-card">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: gap: 12px; border-bottom: 1px solid #DECDB2; padding-bottom: 16px;">
+                <div class="suta-feature-card story-reveal">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #DECDB2; padding-bottom: 16px;">
                         <div>
                             <span style="font-size: 10px; font-family: monospace; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); font-weight: 700;">The 5 Canonical Grades</span>
                             <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.8rem; color: var(--dark); margin-top: 2px;">Makhanam Suta Scale</h3>
@@ -417,7 +417,7 @@
         <!-- CHAPTER 5: ETHICAL SOURCING & WETLAND CONSERVATION -->
         <section class="chapter-section alt-bg">
             <div class="site-container">
-                <div class="chapter-grid">
+                <div class="chapter-grid story-reveal">
                     <div class="chapter-copy">
                         <span class="chapter-num">Chapter 05</span>
                         <h2 class="chapter-title">
@@ -458,7 +458,7 @@
         <!-- CHAPTER 6: FOUNDER'S VISION & PURPOSE -->
         <section class="vision-section">
             <div class="site-container">
-                <div class="vision-box">
+                <div class="vision-box story-reveal">
                     <div class="vision-portrait">
                         <img src="WhatsApp Image 2026-09-24 at 8.30.27 AM.jpeg" alt="Quality raw makhana inventory ready for dispatch" loading="lazy">
                         <div class="vision-portrait-badge">
@@ -492,7 +492,7 @@
 
         <!-- CALL TO ACTION STRIP -->
         <section class="cta-strip">
-            <div class="cta-wrap">
+            <div class="cta-wrap story-reveal">
                 <span class="kicker" style="color: var(--gold-bright); justify-content: center;">
                     <span class="kicker-line"></span>
                     <span>Direct Source Partnership</span>
@@ -608,6 +608,23 @@
                     header.classList.remove('is-scrolled');
                 }
             }
+        });
+
+        // Scroll reveal observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.story-reveal').forEach(el => observer.observe(el));
         });
     </script>
 </body>

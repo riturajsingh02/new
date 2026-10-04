@@ -303,8 +303,36 @@ function openRFQWithFreight() {
 }
 function handleRFQSubmit(e) {
   e.preventDefault();
+  const company = $('rfq-company') ? $('rfq-company').value : '';
+  const name = $('rfq-name') ? $('rfq-name').value : '';
+  const email = $('rfq-email') ? $('rfq-email').value : '';
+  const port = $('rfq-port') ? $('rfq-port').value : '';
+  const grade = $('rfq-grade-select') && $('rfq-grade-select').selectedOptions ? $('rfq-grade-select').selectedOptions[0].text : '';
+  const details = $('rfq-details') ? $('rfq-details').value : '';
+
+  const waText = encodeURIComponent(
+    `*Makhanam B2B RFQ Inquiry*\n` +
+    `Company: ${company}\n` +
+    `Contact: ${name}\n` +
+    `Email: ${email}\n` +
+    `Destination: ${port}\n` +
+    `Preferred Grade: ${grade}\n` +
+    (details ? `Details: ${details}\n` : '')
+  );
+
   if ($('rfq-form')) {
-    $('rfq-form').innerHTML = '<p class="rfq-ok" style="padding: 24px; text-align: center; color: #C9A961; font-weight: 600;"><i class="fa-solid fa-circle-check" style="font-size: 28px; display: block; margin-bottom: 12px;"></i> Thank you. Our export desk will reply within 24 hours.</p>';
+    $('rfq-form').innerHTML = `
+      <div class="rfq-ok" style="padding: 24px 16px; text-align: center;">
+        <i class="fa-solid fa-circle-check" style="font-size: 36px; color: #C9A961; display: block; margin-bottom: 12px;"></i>
+        <h4 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; color: #241C17; margin-bottom: 8px;">Quotation Request Received</h4>
+        <p style="font-size: 13px; color: #5C4232; margin-bottom: 20px; line-height: 1.6;">
+          Thank you, ${name || 'Sir/Madam'}. Your export enquiry for <strong>${company || 'your organization'}</strong> has been registered with our Bihar dispatch desk.
+        </p>
+        <a href="https://wa.me/918340493639?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 999px;">
+          <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> Send Copy to WhatsApp Export Desk
+        </a>
+      </div>
+    `;
   }
 }
 

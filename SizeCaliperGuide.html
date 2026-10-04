@@ -946,26 +946,26 @@
             <form id="rfq-form" onsubmit="handleRFQSubmit(event)">
                 <div class="form-group">
                     <label>Company Name *</label>
-                    <input type="text" required placeholder="e.g. Global Foods LLC">
+                    <input type="text" id="rfq-company" name="company" required placeholder="Company or Organization Name">
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Contact Person *</label>
-                        <input type="text" required placeholder="John Doe">
+                        <input type="text" id="rfq-name" name="name" required placeholder="Full Name">
                     </div>
                     <div class="form-group">
                         <label>Business Email *</label>
-                        <input type="email" required placeholder="john@globalfoods.com">
+                        <input type="email" id="rfq-email" name="email" required placeholder="name@company.com">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Destination Port *</label>
-                        <input type="text" id="rfq-port" required placeholder="e.g. Port of Rotterdam / Dubai Jebel Ali">
+                        <input type="text" id="rfq-port" name="port" required placeholder="Destination Port / Delivery Location">
                     </div>
                     <div class="form-group">
                         <label>Preferred Suta Grade</label>
-                        <select id="rfq-grade-select">
+                        <select id="rfq-grade-select" name="grade">
                             <option value="all">All Suta Grades Sample Pack</option>
                             <option value="7">7 Suta (Super Jumbo) &gt; 21mm</option>
                             <option value="6">6+ Suta (Jumbo) 19–26mm</option>
@@ -977,7 +977,7 @@
                 </div>
                 <div class="form-group">
                     <label>Inquiry Details / Volume Required (MT)</label>
-                    <textarea rows="3" placeholder="Specify required quantity in Metric Tons, target Incoterm (FOB/CIF), or packaging preference..."></textarea>
+                    <textarea id="rfq-details" name="details" rows="3" placeholder="Volume required in Metric Tons, target Incoterm (FOB/CIF), packaging preference, or custom specifications..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit RFQ</button>
             </form>
@@ -1014,6 +1014,7 @@
                         <li><a href="index.html#services">Our Services</a></li>
                         <li><a href="index.html#partner">Why Partner</a></li>
                         <li><a href="SizeCaliperGuide.html">Grading Specifications</a></li>
+                        <li><a href="contactus.html">Wholesale Contact</a></li>
                     </ul>
                 </div>
 
