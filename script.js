@@ -112,7 +112,7 @@ function selectGrade(i) {
   });
   if ($('detail-grade-tag')) $('detail-grade-tag').textContent = g.tag;
   if ($('detail-name')) $('detail-name').textContent = g.name;
-  if ($('detail-subtitle')) $('detail-subtitle').textContent = `Actual Size: ${g.range} | Traditional Suta Measurement`;
+  if ($('detail-subtitle')) $('detail-subtitle').textContent = `Actual Size: ${g.range} | Traditional Suta Caliper Scaled`;
   if ($('detail-count')) $('detail-count').textContent = g.count;
   if ($('detail-moisture')) $('detail-moisture').textContent = g.moisture;
   if ($('detail-yield')) $('detail-yield').textContent = g.yield;
@@ -139,7 +139,7 @@ function toggleCompareMode() {
   if (!d) return;
   d.classList.toggle('hidden');
   if (!d.classList.contains('hidden')) {
-    const opts = GRADES.map((g, i) => `<option value="${i}">${g.tag}</option>`).join('');
+    const opts = GRADES.map((g, i) => `<option value="${i}">${g.label} (${g.range})</option>`).join('');
     if ($('compare-select-1')) $('compare-select-1').innerHTML = opts; 
     if ($('compare-select-2')) $('compare-select-2').innerHTML = opts;
     if ($('compare-select-1')) $('compare-select-1').value = current; 
@@ -149,23 +149,113 @@ function toggleCompareMode() {
   }
 }
 
+function swapCompareGrades() {
+  const s1 = $('compare-select-1');
+  const s2 = $('compare-select-2');
+  if (s1 && s2) {
+    const tmp = s1.value;
+    s1.value = s2.value;
+    s2.value = tmp;
+    updateComparison();
+  }
+}
+
 function updateComparison() {
-  const compGrid = $('comparison-grid');
-  if (!compGrid || !$('compare-select-1') || !$('compare-select-2')) return;
-  compGrid.innerHTML = [$('compare-select-1').value, $('compare-select-2').value].map(v => {
-    const g = GRADES[v];
-    return `<div class="compare-col">
-      <div class="compare-img"><img src="${IMG(g.key)}" alt="${g.label}"></div>
-      <h4>${g.label}</h4>
-      <dl>
-        <dt>Actual Size</dt><dd>${g.range}</dd>
-        <dt>Primary Use Case</dt><dd>${g.usage}</dd>
-        <dt>Count / 100g</dt><dd>${g.count}</dd>
-        <dt>Moisture</dt><dd>${g.moisture}</dd>
-        <dt>Popping yield</dt><dd>${g.yield}</dd>
-        <dt>Bulk density</dt><dd>${g.density}</dd>
-      </dl></div>`;
-  }).join('');
+  const compContainer = $('comparison-grid');
+  if (!compContainer || !$('compare-select-1') || !$('compare-select-2')) return;
+  const g1 = GRADES[$('compare-select-1').value] || GRADES[0];
+  const g2 = GRADES[$('compare-select-2').value] || GRADES[1];
+
+  compContainer.innerHTML = `
+    <!-- Dual Visual Headers -->
+    <div class="compare-header-grid">
+      <div class="compare-item-card">
+        <span class="compare-badge">${g1.badge}</span>
+        <div class="compare-photo">
+          <img src="${IMG(g1.key)}" alt="${g1.label}">
+        </div>
+        <h4 class="compare-title">${g1.label}</h4>
+        <div class="compare-size">${g1.range}</div>
+        <button onclick="openRFQWithSpecificGrade('${g1.key}')" class="compare-rfq-btn">
+          <i class="fa-solid fa-file-invoice"></i> Quote ${g1.badge.split(' ')[0]}
+        </button>
+      </div>
+
+      <div class="compare-item-card">
+        <span class="compare-badge">${g2.badge}</span>
+        <div class="compare-photo">
+          <img src="${IMG(g2.key)}" alt="${g2.label}">
+        </div>
+        <h4 class="compare-title">${g2.label}</h4>
+        <div class="compare-size">${g2.range}</div>
+        <button onclick="openRFQWithSpecificGrade('${g2.key}')" class="compare-rfq-btn">
+          <i class="fa-solid fa-file-invoice"></i> Quote ${g2.badge.split(' ')[0]}
+        </button>
+      </div>
+    </div>
+
+    <!-- Unified Side-by-Side Mobile Matrix Table -->
+    <div class="compare-matrix-box">
+      <!-- Row 1: Size -->
+      <div class="compare-row bg-alt">
+        <div class="compare-metric-title"><i class="fa-solid fa-ruler-horizontal"></i> Actual Caliper Size</div>
+        <div class="compare-values-grid">
+          <div class="val-cell highlight">${g1.range}</div>
+          <div class="val-cell highlight">${g2.range}</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Count -->
+      <div class="compare-row">
+        <div class="compare-metric-title"><i class="fa-solid fa-weight-scale"></i> Count / 100g</div>
+        <div class="compare-values-grid">
+          <div class="val-cell">${g1.count}</div>
+          <div class="val-cell">${g2.count}</div>
+        </div>
+      </div>
+
+      <!-- Row 3: Yield -->
+      <div class="compare-row bg-alt">
+        <div class="compare-metric-title"><i class="fa-solid fa-expand"></i> Popping Yield</div>
+        <div class="compare-values-grid">
+          <div class="val-cell">${g1.yield}</div>
+          <div class="val-cell">${g2.yield}</div>
+        </div>
+      </div>
+
+      <!-- Row 4: Bulk Density -->
+      <div class="compare-row">
+        <div class="compare-metric-title"><i class="fa-solid fa-cube"></i> Bulk Density</div>
+        <div class="compare-values-grid">
+          <div class="val-cell">${g1.density}</div>
+          <div class="val-cell">${g2.density}</div>
+        </div>
+      </div>
+
+      <!-- Row 5: Moisture -->
+      <div class="compare-row bg-alt">
+        <div class="compare-metric-title"><i class="fa-solid fa-droplet"></i> Moisture Content</div>
+        <div class="compare-values-grid">
+          <div class="val-cell">${g1.moisture}</div>
+          <div class="val-cell">${g2.moisture}</div>
+        </div>
+      </div>
+
+      <!-- Row 6: Use Case -->
+      <div class="compare-row">
+        <div class="compare-metric-title"><i class="fa-solid fa-bullseye"></i> Primary Industry Use Case</div>
+        <div class="compare-values-grid">
+          <div class="val-cell text-left usage-text">${g1.usage}</div>
+          <div class="val-cell text-left usage-text">${g2.usage}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function openRFQWithSpecificGrade(gradeKey) {
+  if ($('rfq-grade-select')) $('rfq-grade-select').value = gradeKey;
+  openRFQModal();
 }
 
 // ---------- Freight calculator ----------
@@ -220,6 +310,7 @@ function handleRFQSubmit(e) {
 
 // ---------- Init ----------
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   if ($('makhana-grid')) {
     renderGrid(); 
     selectGrade(0); 

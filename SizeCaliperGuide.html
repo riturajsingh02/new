@@ -615,6 +615,11 @@
             </div>
 
             <!-- Makhana Suta Interactive Grid -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;" class="mobile-only-hint">
+                <span style="font-size: 0.72rem; font-family: monospace; color: #A66D4E; text-transform: uppercase; font-weight: 700;">Tap to Select Grade</span>
+                <span style="font-size: 0.72rem; color: #7D7065;"><i class="fa-solid fa-arrows-left-right mr-1"></i> Swipe 5 grades</span>
+            </div>
+
             <div class="makhana-grid" id="makhana-grid">
                 <!-- Dynamically generated via JS -->
             </div>
@@ -628,8 +633,8 @@
                         <p id="detail-subtitle">Actual Size: Greater than 21 mm | Traditional Suta Measurement</p>
                     </div>
                     <div class="detail-actions">
-                        <button class="btn btn-sm btn-outline-gold" id="compare-btn" onclick="toggleCompareMode()">
-                            <i class="fa-solid fa-columns"></i> Compare with another grade
+                        <button class="btn btn-sm btn-outline-gold" id="compare-btn" onclick="toggleCompareMode()" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; font-weight: 700;">
+                            <i class="fa-solid fa-code-compare text-gold"></i> Compare with another grade
                         </button>
                     </div>
                 </div>
@@ -706,24 +711,103 @@
                 </div>
             </div>
 
-            <!-- Comparison Drawer -->
+            <!-- Comparison Drawer (Mobile-Optimized Dual Compare Mode) -->
             <div class="comparison-drawer hidden" id="comparison-drawer">
                 <div class="comparison-header">
-                    <h3><i class="fa-solid fa-code-compare"></i> Side-by-Side Grade Comparison</h3>
-                    <button class="close-btn" onclick="toggleCompareMode()"><i class="fa-solid fa-xmark"></i></button>
+                    <h3><i class="fa-solid fa-code-compare text-gold"></i> Side-by-Side Suta Grade Comparison</h3>
+                    <button class="close-btn" onclick="toggleCompareMode()" aria-label="Close comparison"><i class="fa-solid fa-xmark"></i></button>
                 </div>
+
                 <div class="comparison-selectors">
                     <div class="select-group">
-                        <label>Select Grade A:</label>
+                        <label><i class="fa-solid fa-circle-dot text-gold mr-1"></i> Grade A:</label>
                         <select id="compare-select-1" onchange="updateComparison()"></select>
                     </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <button type="button" class="swap-btn" onclick="swapCompareGrades()" title="Swap Grades" aria-label="Swap Grade A and B">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </button>
+                    </div>
+
                     <div class="select-group">
-                        <label>Select Grade B:</label>
+                        <label><i class="fa-solid fa-circle-dot text-gold mr-1"></i> Grade B:</label>
                         <select id="compare-select-2" onchange="updateComparison()"></select>
                     </div>
                 </div>
+
                 <div class="comparison-grid" id="comparison-grid">
-                    <!-- Rendered by JS -->
+                    <!-- Rendered dynamically by updateComparison() -->
+                </div>
+
+                <!-- Master Suta Specifications Comparison Table inside Drawer -->
+                <div class="master-matrix-card" style="margin-top: 20px; padding: 16px; background: #FFF; border-radius: 16px; border: 1px solid #DECDB2;">
+                    <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <span style="font-size: 0.68rem; font-family: monospace; font-weight: 700; color: #A66D4E; text-transform: uppercase; letter-spacing: 0.12em;">All 5 Grades</span>
+                            <h4 style="font-size: 1.15rem; color: #241C17; margin-top: 1px;">Suta Specifications Matrix</h4>
+                        </div>
+                        <span style="font-size: 0.68rem; color: #7D7065; background: #F5ECDC; padding: 3px 8px; border-radius: 999px;">
+                            <i class="fa-solid fa-arrows-left-right mr-1"></i> Swipe table
+                        </span>
+                    </div>
+
+                    <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; border: 1px solid #DECDB2;">
+                        <table style="width: 100%; border-collapse: collapse; min-width: 540px; text-align: left; font-size: 0.8rem; background: #FFF;">
+                            <thead>
+                                <tr style="background: #241C17; color: #E8CD84; font-family: monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;">
+                                    <th style="padding: 10px 12px; border-right: 1px solid rgba(255,255,255,0.1);">Grade Name</th>
+                                    <th style="padding: 10px 12px; border-right: 1px solid rgba(255,255,255,0.1);">Actual Size</th>
+                                    <th style="padding: 10px 12px; border-right: 1px solid rgba(255,255,255,0.1);">Count / 100g</th>
+                                    <th style="padding: 10px 12px; border-right: 1px solid rgba(255,255,255,0.1);">Yield</th>
+                                    <th style="padding: 10px 12px; border-right: 1px solid rgba(255,255,255,0.1);">Moisture</th>
+                                    <th style="padding: 10px 12px;">Primary Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: #241C17;">
+                                <tr style="border-bottom: 1px solid #EFE4D2; background: #FDFBF7;">
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2;">7 Suta (Super Jumbo)</td>
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2; font-family: monospace;">&gt; 21 mm</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">75 – 85 pcs</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">98%</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">&lt; 7.5%</td>
+                                    <td style="padding: 10px 12px; font-size: 0.75rem; color: #4A3D34;">Top-tier export quality &amp; specialty packaging</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #EFE4D2;">
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2;">6+ Suta (Jumbo)</td>
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2; font-family: monospace;">19 – 26 mm</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">95 – 105 pcs</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">97%</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">&lt; 7.5%</td>
+                                    <td style="padding: 10px 12px; font-size: 0.75rem; color: #4A3D34;">High-end gourmet markets, luxury gifting, exports</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #EFE4D2; background: #FDFBF7;">
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2;">5 Suta (Royal)</td>
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2; font-family: monospace;">15.9 – 19.0 mm</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">120 – 135 pcs</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">96%</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">&lt; 8.0%</td>
+                                    <td style="padding: 10px 12px; font-size: 0.75rem; color: #4A3D34;">Premium retail packs, D2C brands, snacking</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #EFE4D2;">
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2;">4 Suta (Classic)</td>
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2; font-family: monospace;">12.7 – 15.8 mm</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">160 – 180 pcs</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">95%</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">&lt; 8.0%</td>
+                                    <td style="padding: 10px 12px; font-size: 0.75rem; color: #4A3D34;">Everyday roasting, snacking, and cooking</td>
+                                </tr>
+                                <tr style="background: #FDFBF7;">
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2;">3 Suta (Pearl)</td>
+                                    <td style="padding: 10px 12px; font-weight: 700; border-right: 1px solid #EFE4D2; font-family: monospace;">9 – 12.7 mm</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">220 – 250 pcs</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">93%</td>
+                                    <td style="padding: 10px 12px; border-right: 1px solid #EFE4D2;">&lt; 8.5%</td>
+                                    <td style="padding: 10px 12px; font-size: 0.75rem; color: #4A3D34;">Industrial processing, makhana flour, sweets</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
