@@ -732,12 +732,14 @@
     <section id="grading" class="py-16 sm:py-20 lg:py-24 bg-brand-ivory text-brand-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal">
-                <span class="text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold">Premium Makhana</span>
-                <h2 class="font-serif text-2xl sm:text-3xl lg:text-5xl font-light mt-2">Our Premium Makhana Grading Specifications</h2>
-                <p class="text-brand-charcoal/65 text-sm mt-4">Premium grading categories and size ranges as presented in the Makhanam catalogue.</p>
+                <span class="text-brand-terracotta text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold">Traditional Suta System</span>
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-5xl font-light mt-2">Makhana Grades &amp; Sizes</h2>
+                <p class="text-brand-charcoal/75 text-sm sm:text-base mt-4">
+                    Makhana grades are measured using the traditional Suta system. Each grade is standardized by millimeter caliper and tailored for specific industry applications.
+                </p>
             </div>
 
-            <div id="grading-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            <div id="grading-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 sm:gap-6">
                 <!-- Grading cards injected by JavaScript -->
             </div>
         </div>
@@ -833,7 +835,7 @@
                 <div class="space-y-3">
                     <h4 class="font-serif text-sm tracking-widest text-brand-gold uppercase">Contact</h4>
                     <ul class="space-y-2 text-xs text-brand-cream/70 font-light">
-                        <li>Darbhanga, Bihar</li>
+                        <li> Bihar</li>
                         <li><a href="tel:+918292176088" class="hover:text-brand-gold">+91 8340493639</a></li>
                          <li><a data-whatsapp href="#" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-gold-bright" aria-label="WhatsApp bulk enquiry"><i class="fa-brands fa-whatsapp"></i> WhatsApp Bulk Enquiry</a></li>
                         <li><a href="mailto:greenfieldagro2024@gmail.com" class="hover:text-brand-gold break-all"></a></li>
@@ -896,57 +898,59 @@ const SERVICES_DATA = {
 
 
 /* =========================================================
-   2. GRADING DATA
+   2. GRADING DATA (TRADITIONAL SUTA SYSTEM)
 ========================================================= */
 
 const GRADING_DATA = [
 
     {
-        grade: '6+ HP',
-        size: '19–24 mm',
-        image: '6+.jpeg'
+        suta: '7 Suta',
+        title: '7 Suta Makhana',
+        subtitle: 'Super Jumbo',
+        size: 'Greater than 21 mm',
+        useCase: 'Top-tier export quality and specialty packaging',
+        image: 'images/makhana-7.png',
+        badge: '7 SUTA (21mm+)'
     },
 
     {
-        grade: '5+ HP',
-        size: '15.75–24 mm',
-        image: 'https://pixabay.com/images/download/kumarsu6745-asia-10089951_1920.jpg'
+        suta: '6+ Suta',
+        title: '6+ Suta Makhana',
+        subtitle: 'Jumbo',
+        size: '19 – 26 mm',
+        useCase: 'High-end gourmet markets, luxury gifting, and international exports',
+        image: 'images/makhana-6.png',
+        badge: '6+ SUTA (19–26mm)'
     },
 
     {
-        grade: '5 HP',
-        size: '15.7–19 mm',
-        image: 'https://pixabay.com/images/download/kumarsu6745-lotus-seed-10089952_1920.jpg'
+        suta: '5 Suta',
+        title: '5 Suta Makhana',
+        subtitle: 'Royal',
+        size: '15.9 – 19.0 mm',
+        useCase: 'Premium retail packs, flavored makhana D2C brands, and snacking',
+        image: 'images/makhana-5.png',
+        badge: '5 SUTA (15.9–19mm)'
     },
 
     {
-        grade: '5+',
-        size: '15.75–24 mm',
-        image: 'https://images.pexels.com/photos/29246691/pexels-photo-29246691.jpeg'
+        suta: '4 Suta',
+        title: '4 Suta Makhana',
+        subtitle: 'Classic',
+        size: '12.7 – 15.8 mm',
+        useCase: 'Everyday roasting, snacking, and household cooking',
+        image: 'images/makhana-4.png',
+        badge: '4 SUTA (12.7–15.8mm)'
     },
 
     {
-        grade: '4+ HP',
-        size: '12.5–24 mm',
-        image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=800'
-    },
-
-    {
-        grade: '4 HP',
-        size: '12.5–15.5 mm',
-        image: '4 suta.jpeg'
-    },
-
-    {
-        grade: '4+',
-        size: '12.5–24 mm',
-        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=800'
-    },
-
-    {
-        grade: '4',
-        size: '12.5–15.5 mm',
-        image: 'https://images.unsplash.com/photo-1528733931641-f06b642a8b98?auto=format&fit=crop&q=80&w=800'
+        suta: '3 Suta',
+        title: '3 Suta Makhana',
+        subtitle: 'Pearl',
+        size: '9 – 12.7 mm',
+        useCase: 'Industrial processing, makhana flour, or sweets',
+        image: 'images/makhana-medium.png',
+        badge: '3 SUTA (9–12.7mm)'
     }
 
 ];
@@ -1432,52 +1436,47 @@ function renderGrading() {
             <article
                 class="group bg-brand-cream rounded-2xl
                        overflow-hidden border border-brand-earth/15
-                       shadow-sm hover:shadow-xl
+                       shadow-sm hover:shadow-xl flex flex-col justify-between
                        transition-all duration-500">
 
-                <div
-                    class="relative aspect-[4/3]
-                           overflow-hidden bg-brand-ivory">
-
-                    <img
-                        src="${item.image}"
-                        alt="${item.grade} Makhana grading"
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                        class="w-full h-full object-cover
-                               group-hover:scale-105
-                               transition-transform duration-700"
-                    >
-
+                <div>
                     <div
-                        class="absolute inset-0
-                               bg-gradient-to-t
-                               from-brand-dark/65
-                               via-transparent
-                               to-transparent">
+                        class="relative aspect-[4/3]
+                               overflow-hidden bg-brand-ivory">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.title} (${item.subtitle})"
+                            loading="lazy"
+                            onerror="this.style.display='none'"
+                            class="w-full h-full object-cover
+                                   group-hover:scale-105
+                                   transition-transform duration-700"
+                        >
+
+                        <div
+                            class="absolute inset-0
+                                   bg-gradient-to-t
+                                   from-brand-dark/70
+                                   via-transparent
+                                   to-transparent">
+                        </div>
+
+                        <div
+                            class="absolute top-3 left-3
+                                   bg-brand-dark/90
+                                   text-brand-gold
+                                   text-[10px] font-mono font-semibold
+                                   px-2.5 py-1 rounded-full
+                                   border border-brand-gold/30">
+
+                            ${item.badge}
+
+                        </div>
+
                     </div>
 
-                    <div
-                        class="absolute top-3 left-3
-                               bg-brand-dark/85
-                               text-brand-gold
-                               text-[10px] font-mono
-                               px-2.5 py-1 rounded-full
-                               border border-brand-gold/25">
-
-                        PREMIUM GRADE
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="p-5 sm:p-6
-                           flex items-end
-                           justify-between gap-4">
-
-                    <div>
+                    <div class="p-5">
 
                         <div
                             class="text-[10px]
@@ -1485,45 +1484,37 @@ function renderGrading() {
                                    text-brand-terracotta
                                    font-semibold">
 
-                            Grade
+                            ${item.subtitle}
 
                         </div>
 
                         <h3
                             class="font-serif
-                                   text-2xl sm:text-3xl
+                                   text-xl sm:text-2xl
                                    font-light
                                    text-brand-dark mt-1">
 
-                            ${item.grade}
+                            ${item.title}
 
                         </h3>
 
-                    </div>
-
-
-                    <div class="text-right">
-
-                        <div
-                            class="text-[10px]
-                                   uppercase tracking-widest
-                                   text-brand-terracotta
-                                   font-semibold">
-
-                            Size
-
+                        <div class="mt-3 pt-3 border-t border-brand-cocoa/15 flex items-baseline justify-between">
+                            <span class="text-[10px] uppercase tracking-wider text-brand-dark/60 font-medium">Actual Size</span>
+                            <span class="font-mono text-xs text-brand-dark font-bold">${item.size}</span>
                         </div>
 
-                        <div
-                            class="font-mono text-sm
-                                   text-brand-earth mt-1">
-
-                            ${item.size}
-
+                        <div class="mt-3 text-xs text-brand-charcoal/80 leading-relaxed font-light">
+                            <span class="font-semibold text-brand-cocoa block text-[10px] uppercase tracking-wider mb-1">Use Case</span>
+                            ${item.useCase}
                         </div>
 
                     </div>
+                </div>
 
+                <div class="px-5 pb-5 pt-1">
+                    <a href="SizeCaliperGuide.html" class="block w-full text-center py-2 rounded-xl bg-brand-dark/5 hover:bg-brand-dark hover:text-brand-gold text-brand-dark text-[11px] font-semibold tracking-wider uppercase transition-colors">
+                        View Specs &rarr;
+                    </a>
                 </div>
 
             </article>
