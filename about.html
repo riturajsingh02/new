@@ -310,6 +310,93 @@
             </div>
         </section>
 
+        <!-- CINEMATIC VIDEO DOCUMENTARY SECTION (VERTICAL 9:16 PORTRAIT THEATER) -->
+        <section class="cinematic-video-section" id="harvest-film">
+            <div class="video-ambient-glow"></div>
+            <div class="site-container">
+                <div class="video-vertical-layout">
+                    <!-- Left: Vertical 9:16 Phone/Reel Cinema Frame (Crisp, zero blur) -->
+                    <div class="video-player-frame reveal" id="videoFrame">
+                        <!-- Top Metadata Overlay -->
+                        <div class="video-top-bar">
+                            <div class="video-top-badge">
+                                <span class="pulse-dot"></span>
+                                <span>Wetland Footage</span>
+                            </div>
+                            <div class="video-top-location">
+                                <i class="fa-solid fa-location-dot" style="color: var(--gold);"></i>
+                                <span>Bihar, India</span>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Video Element -->
+                        <video id="aboutDocVideo" class="cinematic-video-el" playsinline loop poster="main.jpeg" preload="metadata" muted autoplay>
+                            <source src="images/mk.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+
+                        <!-- Large Center Play/Pause Trigger -->
+                        <div class="video-center-overlay" id="videoCenterOverlay" aria-label="Play or Pause Video">
+                            <button class="video-play-btn-large" id="bigPlayBtn" aria-label="Play Video">
+                                <i class="fa-solid fa-play" id="bigPlayIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Editorial Narrative & Process Breakdown -->
+                    <div class="video-editorial-col reveal">
+                        <div>
+                            <span class="section-eyebrow text-gold"><i class="fa-solid fa-film"></i> LIVING MITHILA HERITAGE</span>
+                            <h2 class="editorial-title text-cream">
+                                Sacred Waters to <span class="italic text-gold-bright">Pristine Bloom</span>
+                            </h2>
+                            <p class="text-cream-muted" style="font-size: 15.5px; line-height: 1.7; margin-bottom: 24px;">
+                                Authentic raw field recording from our Bihar harvest. Experience the generational Mallah divers foraging organic seeds from mineral-rich wetland beds, curing under the sun, and wood-fire popping with rhythmic precision.
+                            </p>
+                        </div>
+
+                        <div class="video-insights-vertical-list">
+                            <div class="video-insight-card">
+                                <div class="insight-header">
+                                    <div class="insight-icon">
+                                        <i class="fa-solid fa-water"></i>
+                                    </div>
+                                    <h3 class="insight-title">01. Underwater Hand Foraging</h3>
+                                </div>
+                                <p class="insight-desc">
+                                    Mallah artisans dive into natural aquatic wetlands to hand-gather spiny lotus seeds without mechanized disruption.
+                                </p>
+                            </div>
+
+                            <div class="video-insight-card">
+                                <div class="insight-header">
+                                    <div class="insight-icon">
+                                        <i class="fa-solid fa-fire-burner"></i>
+                                    </div>
+                                    <h3 class="insight-title">02. Wood-Fired Clay Popping</h3>
+                                </div>
+                                <p class="insight-desc">
+                                    High-temperature roasting in earthen pots and rhythmic wooden mallet strikes instantly expand the seed into a crisp white bloom.
+                                </p>
+                            </div>
+
+                            <div class="video-insight-card">
+                                <div class="insight-header">
+                                    <div class="insight-icon">
+                                        <i class="fa-solid fa-ruler-combined"></i>
+                                    </div>
+                                    <h3 class="insight-title">03. Standardized Suta Calipers</h3>
+                                </div>
+                                <p class="insight-desc">
+                                    Mechanical sieving calibrates lots from 3 Suta Pearl to 7 Suta Super Jumbo for dependable global wholesale distribution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 4-STEP VISUAL QUALITY PIPELINE (With Real Photos) -->
         <section class="visual-pipeline-section">
             <div class="site-container">
@@ -646,6 +733,72 @@
         }, { threshold: 0.12 });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ======================================================================
+        // CINEMATIC VERTICAL VIDEO AUTOPLAY & INTERACTION CONTROLLER
+        // ======================================================================
+        const docVideo = document.getElementById('aboutDocVideo');
+        const centerOverlay = document.getElementById('videoCenterOverlay');
+        const bigPlayBtn = document.getElementById('bigPlayBtn');
+        const videoFrame = document.getElementById('videoFrame');
+
+        function updatePlayState(isPlaying) {
+            if (centerOverlay) {
+                if (isPlaying) {
+                    centerOverlay.classList.add('playing');
+                } else {
+                    centerOverlay.classList.remove('playing');
+                }
+            }
+        }
+
+        function toggleVideoPlayback() {
+            if (!docVideo) return;
+            if (docVideo.paused) {
+                docVideo.play().then(() => {
+                    updatePlayState(true);
+                }).catch(err => {
+                    console.log('Video play error:', err);
+                });
+            } else {
+                docVideo.pause();
+                updatePlayState(false);
+            }
+        }
+
+        if (docVideo) {
+            // Trigger play/pause on tap / click
+            if (bigPlayBtn) bigPlayBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleVideoPlayback();
+            });
+            if (centerOverlay) centerOverlay.addEventListener('click', toggleVideoPlayback);
+            docVideo.addEventListener('click', toggleVideoPlayback);
+
+            docVideo.addEventListener('play', () => updatePlayState(true));
+            docVideo.addEventListener('pause', () => updatePlayState(false));
+            docVideo.addEventListener('ended', () => updatePlayState(false));
+
+            // Auto-play muted video smoothly when section scrolls into viewport
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (docVideo.paused) {
+                            docVideo.play().then(() => {
+                                updatePlayState(true);
+                            }).catch(() => {});
+                        }
+                    } else {
+                        if (!docVideo.paused) {
+                            docVideo.pause();
+                            updatePlayState(false);
+                        }
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            videoObserver.observe(videoFrame || docVideo);
+        }
     </script>
 </body>
 </html>

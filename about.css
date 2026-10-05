@@ -662,6 +662,253 @@ a {
 }
 
 /* ==========================================================================
+   CINEMATIC VIDEO SHOWCASE SECTION (VERTICAL / PORTRAIT 9:16 FORMAT)
+   ========================================================================== */
+.cinematic-video-section {
+    padding: 100px 0;
+    background: var(--charcoal);
+    color: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(201, 169, 97, 0.22);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.22);
+}
+
+.video-ambient-glow {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201, 169, 97, 0.18) 0%, rgba(195, 122, 88, 0.08) 45%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.video-vertical-layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.video-player-frame {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #0D0907;
+    border: 2px solid rgba(201, 169, 97, 0.45);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75), 0 0 50px rgba(201, 169, 97, 0.2);
+    aspect-ratio: 9 / 16;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cinematic-video-el {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.video-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 18px;
+    background: linear-gradient(to bottom, rgba(15, 10, 7, 0.88) 0%, rgba(15, 10, 7, 0) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.video-top-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(36, 28, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 169, 97, 0.4);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gold-bright);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.video-top-location {
+    font-size: 10px;
+    color: rgba(243, 233, 213, 0.85);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(23, 17, 13, 0.65);
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+}
+
+.video-center-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    background: rgba(15, 10, 7, 0.35);
+    transition: opacity 0.35s ease;
+    cursor: pointer;
+}
+
+.video-center-overlay.playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-play-btn-large {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    padding-left: 4px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 30px rgba(201, 169, 97, 0.7);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.video-play-btn-large:hover {
+    transform: scale(1.1);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.7), 0 0 45px rgba(201, 169, 97, 0.9);
+}
+
+/* Right Editorial Content Beside Vertical Video */
+.video-editorial-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.video-insights-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.video-insight-card {
+    background: rgba(36, 28, 23, 0.7);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.video-insight-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    background: rgba(36, 28, 23, 0.9);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.insight-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(201, 169, 97, 0.15);
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.insight-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.insight-desc {
+    font-size: 13.5px;
+    color: rgba(243, 233, 213, 0.78);
+    line-height: 1.6;
+}
+
+.video-insight-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    background: rgba(36, 28, 23, 0.9);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.insight-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(201, 169, 97, 0.15);
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.insight-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.insight-desc {
+    font-size: 13px;
+    color: rgba(243, 233, 213, 0.75);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
    SECTION COMMON STYLES
    ========================================================================== */
 .section-eyebrow {
@@ -1362,8 +1609,18 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .video-vertical-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 40px;
+    }
+
     .pipeline-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-insights-grid {
+        grid-template-columns: 1fr;
     }
 
     .grading-grid {
