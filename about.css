@@ -1022,6 +1022,187 @@ a {
 }
 
 /* ==========================================================================
+   LIVE HARVEST & MOTION SPOTLIGHT (mk.gif integration)
+   ========================================================================== */
+.live-spotlight-section {
+    padding: 80px 0;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.live-spotlight-card {
+    background: linear-gradient(145deg, rgba(36, 28, 23, 0.95), rgba(23, 17, 13, 0.98));
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.live-spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.live-spotlight-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.live-media-frame {
+    position: relative;
+}
+
+.live-media-wrapper {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 169, 97, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    aspect-ratio: 9 / 16;
+    max-height: 480px;
+    margin: 0 auto;
+    background: #0f0a07;
+}
+
+.live-gif-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.live-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(23, 17, 13, 0.65) 0%, transparent 40%, rgba(23, 17, 13, 0.3) 100%);
+    pointer-events: none;
+}
+
+.live-media-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(23, 17, 13, 0.9);
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    text-transform: uppercase;
+}
+
+.live-indicator-dot,
+.live-media-badge .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: livePulse 1.8s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.live-spotlight-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.live-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 10px 0;
+}
+
+.live-highlight-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.live-hl-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(201, 169, 97, 0.15);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.live-highlight-item strong {
+    font-size: 14px;
+    color: var(--cream);
+    display: block;
+}
+
+.live-highlight-item span {
+    font-size: 12px;
+    color: rgba(243, 233, 213, 0.7);
+    line-height: 1.45;
+}
+
+.live-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Sub-card live badge in origin photo stack */
+.photo-card-live img {
+    object-position: center;
+}
+
+.live-badge {
+    background: rgba(23, 17, 13, 0.88) !important;
+    border: 1px solid var(--gold) !important;
+    color: var(--gold-bright) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* ==========================================================================
    LEADERSHIP & VISION (Photo Visual Profiles)
    ========================================================================== */
 .leadership-section {
@@ -1375,6 +1556,15 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .live-spotlight-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .live-media-wrapper {
+        max-width: 320px;
+    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1444,6 +1634,16 @@ a {
 
     .leader-photo {
         height: 220px;
+    }
+
+    .live-spotlight-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .live-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .footer-grid {
