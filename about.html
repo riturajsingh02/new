@@ -329,18 +329,11 @@
                             </div>
                         </div>
 
-                        <!-- Vertical Video Element -->
-                        <video id="aboutDocVideo" class="cinematic-video-el" playsinline loop poster="main.jpeg" preload="metadata" muted autoplay>
+                        <!-- Vertical Video Element (Continuous Autoplay, No Play/Pause Options) -->
+                        <video id="aboutDocVideo" class="cinematic-video-el" playsinline loop poster="main.jpeg" preload="auto" muted autoplay>
                             <source src="images/mk.mp4" type="video/mp4">
                             Your browser does not support HTML5 video.
                         </video>
-
-                        <!-- Large Center Play/Pause Trigger -->
-                        <div class="video-center-overlay" id="videoCenterOverlay" aria-label="Play or Pause Video">
-                            <button class="video-play-btn-large" id="bigPlayBtn" aria-label="Play Video">
-                                <i class="fa-solid fa-play" id="bigPlayIcon"></i>
-                            </button>
-                        </div>
                     </div>
 
                     <!-- Right: Editorial Narrative & Process Breakdown -->
@@ -735,67 +728,39 @@
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         // ======================================================================
-        // CINEMATIC VERTICAL VIDEO AUTOPLAY & INTERACTION CONTROLLER
+        // CINEMATIC VERTICAL VIDEO CONTINUOUS AUTOPLAY
         // ======================================================================
         const docVideo = document.getElementById('aboutDocVideo');
-        const centerOverlay = document.getElementById('videoCenterOverlay');
-        const bigPlayBtn = document.getElementById('bigPlayBtn');
         const videoFrame = document.getElementById('videoFrame');
 
-        function updatePlayState(isPlaying) {
-            if (centerOverlay) {
-                if (isPlaying) {
-                    centerOverlay.classList.add('playing');
-                } else {
-                    centerOverlay.classList.remove('playing');
-                }
-            }
-        }
-
-        function toggleVideoPlayback() {
-            if (!docVideo) return;
-            if (docVideo.paused) {
-                docVideo.play().then(() => {
-                    updatePlayState(true);
-                }).catch(err => {
-                    console.log('Video play error:', err);
-                });
-            } else {
-                docVideo.pause();
-                updatePlayState(false);
-            }
-        }
-
         if (docVideo) {
-            // Trigger play/pause on tap / click
-            if (bigPlayBtn) bigPlayBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleVideoPlayback();
-            });
-            if (centerOverlay) centerOverlay.addEventListener('click', toggleVideoPlayback);
-            docVideo.addEventListener('click', toggleVideoPlayback);
+            const playVideoMuted = () => {
+                docVideo.muted = true;
+                const promise = docVideo.play();
+                if (promise !== undefined) {
+                    promise.catch(() => {
+                        // If browser blocks immediate autoplay, start upon first interaction anywhere
+                        const startOnGesture = () => {
+                            docVideo.play().catch(() => {});
+                            document.removeEventListener('touchstart', startOnGesture);
+                            document.removeEventListener('click', startOnGesture);
+                        };
+                        document.addEventListener('touchstart', startOnGesture, { passive: true });
+                        document.addEventListener('click', startOnGesture, { passive: true });
+                    });
+                }
+            };
 
-            docVideo.addEventListener('play', () => updatePlayState(true));
-            docVideo.addEventListener('pause', () => updatePlayState(false));
-            docVideo.addEventListener('ended', () => updatePlayState(false));
+            playVideoMuted();
 
             // Auto-play muted video smoothly when section scrolls into viewport
             const videoObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (docVideo.paused) {
-                            docVideo.play().then(() => {
-                                updatePlayState(true);
-                            }).catch(() => {});
-                        }
-                    } else {
-                        if (!docVideo.paused) {
-                            docVideo.pause();
-                            updatePlayState(false);
-                        }
+                    if (entry.isIntersecting && docVideo.paused) {
+                        docVideo.play().catch(() => {});
                     }
                 });
-            }, { threshold: 0.3 });
+            }, { threshold: 0.15 });
 
             videoObserver.observe(videoFrame || docVideo);
         }
