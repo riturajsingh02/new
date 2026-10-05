@@ -1511,23 +1511,23 @@ function renderGrading() {
                        flex flex-col justify-between transition-all duration-300">
 
                 <div>
-                    <!-- Image Box with Badge -->
+                    <!-- Image Box with Badge (Full Space Fill) -->
                     <div
                         class="relative aspect-[4/3] bg-gradient-to-b from-[#FAF6EE] to-[#EFE4D2]
-                               overflow-hidden flex items-center justify-center p-3">
+                               overflow-hidden w-full">
 
                         <img
                             src="${item.image}"
                             alt="${item.title} (${item.subtitle})"
                             loading="lazy"
                             onerror="this.style.display='none'"
-                            class="w-full h-full object-contain filter contrast-105 drop-shadow-sm group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-cover filter contrast-105 group-hover:scale-108 transition-transform duration-500"
                         >
 
                         <div
                             class="absolute inset-0
                                    bg-gradient-to-t
-                                   from-[#241C17]/40
+                                   from-[#241C17]/50
                                    via-transparent
                                    to-transparent pointer-events-none">
                         </div>
@@ -1539,7 +1539,7 @@ function renderGrading() {
                                    text-[#E8CD84]
                                    text-[9px] sm:text-[9.5px] font-mono font-medium
                                    px-2.5 py-1 rounded-full
-                                   border border-[#C9A961]/35 shadow-sm tracking-wide">
+                                   border border-[#C9A961]/35 shadow-sm tracking-wide z-10">
 
                             ${item.badge}
 
