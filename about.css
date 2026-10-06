@@ -4,15 +4,15 @@
    ========================================================================== */
 
 :root {
-    --charcoal: #17110D;
-    --dark: #241C17;
-    --cocoa: #4A3629;
-    --earth: #5C4232;
-    --terracotta: #C37A58;
+    --charcoal: #071F16;
+    --dark: #0B3D2E;
+    --cocoa: #145A43;
+    --earth: #236B50;
+    --terracotta: #7FA66F;
     --gold: #C9A961;
     --gold-bright: #E8CD84;
-    --cream: #F3E9D5;
-    --ivory: #FCF9F2;
+    --cream: #E8F1E6;
+    --ivory: #F7FBF5;
     --card-bg: #FFFFFF;
     --line: rgba(92, 66, 50, 0.14);
 }

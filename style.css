@@ -9,29 +9,29 @@
 
 :root {
     /* ---- Dark Foundation ---- */
-    --green: #241C17;
-    --green2: #4A3629;
+    --green: #0B3D2E;
+    --green2: #145A43;
 
     /* ---- Gold ---- */
     --gold: #C9A961;
     --gold-l: #E8CD84;
 
     /* ---- Light Surfaces ---- */
-    --cream: #F3E9D5;
-    --teal: #FCF9F2;
+    --cream: #E8F1E6;
+    --teal: #F7FBF5;
 
     /* ---- UI ---- */
     --pill: #E9DDC7;
-    --ink: #241C17;
+    --ink: #0B3D2E;
     --mute: #6B5A4D;
     --line: #D8C9B5;
 
     /* ---- Brand Tokens ---- */
-    --brand-charcoal: #17110D;
-    --brand-dark: #241C17;
-    --brand-cocoa: #4A3629;
-    --brand-earth: #5C4232;
-    --brand-terracotta: #C37A58;
+    --brand-charcoal: #071F16;
+    --brand-dark: #0B3D2E;
+    --brand-cocoa: #145A43;
+    --brand-earth: #236B50;
+    --brand-terracotta: #7FA66F;
 
     /* ---- Gold Trio ---- */
     --brand-gold-deep: #000000;
@@ -39,8 +39,8 @@
     --brand-gold-bright: #E8CD84;
 
     /* ---- Light Brand Surfaces ---- */
-    --brand-cream: #F3E9D5;
-    --brand-ivory: #FCF9F2;
+    --brand-cream: #E8F1E6;
+    --brand-ivory: #F7FBF5;
 
     /* ---- Shared ---- */
     --r: 20px;
@@ -102,7 +102,7 @@ h3 {
 .text-gold-gradient {
     background: linear-gradient(
         135deg,
-        #FCF9F2 0%,
+        #F7FBF5 0%,
         #C9A961 45%,
         #E8CD84 100%
     );
@@ -1027,7 +1027,7 @@ select:focus-visible {
 
 .comparison-drawer {
     margin-top: 28px;
-    background: #FCF9F2;
+    background: #F7FBF5;
     border: 1.5px solid #DECDB2;
     border-radius: 24px;
     padding: 24px;
@@ -1079,7 +1079,7 @@ select:focus-visible {
     border-radius: 50%;
     border: 1px solid #C9A961;
     background: #F5ECDC;
-    color: #241C17;
+    color: #0B3D2E;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1089,7 +1089,7 @@ select:focus-visible {
 }
 
 .swap-btn:hover {
-    background: #241C17;
+    background: #0B3D2E;
     color: #E8CD84;
 }
 
@@ -1114,7 +1114,7 @@ select:focus-visible {
 
 .compare-badge {
     display: inline-block;
-    background: #241C17;
+    background: #0B3D2E;
     color: #E8CD84;
     font-size: 0.65rem;
     font-family: monospace;
@@ -1143,7 +1143,7 @@ select:focus-visible {
 .compare-title {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #241C17;
+    color: #0B3D2E;
     margin-top: 4px;
 }
 
@@ -1159,7 +1159,7 @@ select:focus-visible {
     width: 100%;
     margin-top: 10px;
     padding: 6px 8px;
-    background: #241C17;
+    background: #0B3D2E;
     color: #E8CD84;
     border-radius: 8px;
     font-size: 0.72rem;
@@ -1172,7 +1172,7 @@ select:focus-visible {
 }
 
 .compare-rfq-btn:hover {
-    background: #4A3629;
+    background: #145A43;
     color: #FFF;
 }
 
@@ -1228,7 +1228,7 @@ select:focus-visible {
     border-radius: 10px;
     padding: 8px;
     font-size: 0.85rem;
-    color: #241C17;
+    color: #0B3D2E;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -1240,7 +1240,7 @@ select:focus-visible {
     font-family: monospace;
     background: #F5ECDC;
     border-color: #DECDB2;
-    color: #241C17;
+    color: #0B3D2E;
 }
 
 .val-cell.usage-text {
@@ -1254,7 +1254,7 @@ select:focus-visible {
 
 .master-matrix-card {
     margin-top: 32px;
-    background: #FCF9F2;
+    background: #F7FBF5;
     border: 1.5px solid #DECDB2;
     border-radius: 24px;
     padding: 24px;

@@ -4,17 +4,17 @@
 
 :root {
     /* Color Palette */
-    --emerald-dark: #17110D;
-    --emerald-main: #17110D;
-    --emerald-light: #17110D;
+--emerald-dark: #071F16;
+    --emerald-main: #0B3D2E;
+    --emerald-light: #145A43;
     --gold-primary: #D4AF37;
     --gold-light: #F3E5AB;
     --gold-dark: #9A7B1C;
-    --bg-cream: #FAF7F2;
-    --bg-white: #FFFFFF;
-    --text-dark: #1F2421;
-    --text-muted: #5A6561;
-    --border-color: #E2DDD5;
+--bg-cream: #E8F1E6;
+    --bg-white: #F7FBF5;
+    --text-dark: #10291F;
+    --text-muted: #4D6A5B;
+    --border-color: #C9DCCD;
     
     /* Layout & Spacing */
     --max-width: 1240px;
